@@ -1,0 +1,144 @@
+/* Fonts */
+
+@font-face {
+	font-family: 'burbank';
+	src: url('BurbankBigRegular-Bold.woff2') format('woff2'), url('BurbankBigRegular-Bold.woff') format('woff');
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'burbank condensend';
+	src: url('BurbankBigCondensed-Bold.woff2') format('woff2'), url('BurbankBigCondensed-Bold.woff') format('woff');
+	font-weight: 700;
+	font-style: normal;
+}
+
+
+/* Reset */
+
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	outline: none;
+	text-rendering: optimizeLegibility !important;
+	-webkit-font-smoothing: antialiased !important;
+}
+
+body {
+	background: none;
+}
+
+#stage {
+	width: 300px;
+	height: 600px;
+	position: absolute;
+	cursor: pointer;
+	overflow: hidden;
+	border: 1px solid #ececec;
+	padding:14px;
+	background-color: #fff;
+}
+
+.hiddenOnload {
+	opacity:0;
+}
+.disney{
+	position: absolute;
+	right: 2px;
+	bottom: 14px;
+}
+.content{
+	position: absolute;
+	width: calc(100% - 28px);
+	height:calc(100% - 28px);
+	background-image: url(bg.png);
+	background-color: #FFCC00;
+	border:3px solid #000;
+}
+.dd{
+	width: 224.49px;
+	position: absolute;
+	top: 22px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.strandlakenCopy{
+	width: 204.178px;
+	position: absolute;
+	top: 114px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.actie{
+	width: 247.38px;
+	height: 257.04px;
+	position: absolute;
+	top: 135px;
+	right: -39px;
+	z-index: 2;
+}
+.prijs{
+	width: 129.51px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+.plus{
+	width: 29.32px;
+	height: 30.92px;
+	position: absolute;
+	top: 112px;
+	left: 89px;
+	z-index: 2;
+}
+.strandlaken {
+    height: 179.54px;
+    position: absolute;
+    top: 54px;
+    left: 114px;
+    rotate: 10deg;
+}
+.joch{
+	height: 455px;
+	position: absolute;
+	bottom:-86px;
+	left: -83px;
+}
+.cta{
+	position: absolute;
+	top: 506px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	width:214px;
+	height: 39px;
+	padding: 4.661px 7.457px;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	flex-shrink: 0;
+	border-radius: 13.26px;
+	background: #E30513;
+}
+.ctaCopy{
+	color:  #FFF;
+	text-align: center;
+	font-feature-settings: 'liga' off, 'clig' off;
+	font-family: "burbank";
+	font-size: 14.91px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 100%;
+	align-items: center;
+    align-self: center;
+    text-align: center;
+}
+.arrow{
+	width: calc(14.91px * 1.11);
+	height: calc(14.91px * 1.11);
+	flex-shrink: 0;
+}

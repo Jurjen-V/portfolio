@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1 viewport-fit=cover" />
+  <title>Banner Showcase — Jurjen Veenstra</title>
+  <meta name="description" content="Portfolio showcase van HTML5 banners: IAB formaten, site-skin, GSAP-animaties."/>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="img/favicon/favicon.ico">
+  <link rel="manifest" href="img/favicon/site.webmanifest">
+  <meta name="theme-color" content="#0b0d12">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lottie-web/build/player/lottie.min.js"></script>
+</head>
+<body>
+
+  <header class="nav">
+    <div class="container navbar">
+      <div class="home">
+        <strong><a id="home" href="index.html">Jurjen Veenstra</a></strong>
+        <button class="menu-btn"><span></span><span></span><span></span></button>
+      </div>
+      <nav class="navlinks" id="werk-navlinks">
+        <a href="index.html#projecten">Werk</a>
+        <a href="index.html#about">Over</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="panel skin-demo" aria-label="Site skin voorbeeld" id="skin-panel" hidden>
+    <div class="skin-frame">
+      <div class="skin-page">
+        <div class="skin-content">
+          <div class="skin-left"><div class="skin-slot" aria-label="Linker skin"><iframe title="Skin left" width="100%" height="100%" loading="lazy" style="border:0;"></iframe></div></div>
+          <div class="skin-top"><iframe title="Skin top" width="1000" height="300" loading="lazy"></iframe></div>
+          <div class="skin-right"><div class="skin-slot" aria-label="Rechter skin"><iframe title="Skin right" width="100%" height="100%" loading="lazy" style="border:0;"></iframe></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HERO — groen vlak -->
+  <div class="werk-hero">
+    <div class="container">
+      <a href="index.html" class="werk-back">← Terug naar portfolio</a>
+      <header id="hero-preview">
+        <div class="werk-hero__label">Banner showcase</div>
+        <h1 id="page-title" class="werk-hero__title">Banner Showcase</h1>
+        <div class="tag-row">
+          <span class="tag" id="brand-chip">Brand</span>
+          <span class="tag">IAB set</span>
+          <span class="tag">Site skin</span>
+        </div>
+      </header>
+    </div>
+    <div class="werk-hero__circle"></div>
+  </div>
+
+  <div style="background:var(--green);line-height:0;margin-top:-1px; transform: rotate(180deg); display: flex; width: 100vw;">
+    <svg viewBox="0 0 1440 48" width="100vw" preserveAspectRatio="none" height="48" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0 L1440 0 L1440 48 Q720 0 0 48 Z" fill="#0b0d0a"/>
+    </svg>
+  </div>
+
+  <div class="werk-gallery">
+    <div class="container">
+      <section class="werk-panel" aria-label="IAB formaten">
+        <div class="grid" id="gallery"></div>
+      </section>
+      <section class="werk-panel campaign-info" id="campaign-info" hidden>
+        <div class="campaign-text"></div>
+      </section>
+    </div>
+  </div>
+
+  <footer class="footer ch-contact">
+    <div class="container">
+      <section id="contact" class="section">
+        <h2>Laten we iets <em>bouwen</em>.</h2>
+        <p>Neem contact met mij op via mail, LinkedIn of Instagram.</p>
+        <div class="socials">
+          <a href="mailto:jurjen.veenstra@hotmail.nl" target="_blank" class="tag">jurjen.veenstra@hotmail.nl</a>
+          <a href="https://www.linkedin.com/in/jurjen-veenstra/" target="_blank" class="tag">LinkedIn</a>
+          <a href="https://www.instagram.com/jurjen_veenstra/" target="_blank" class="tag">Instagram</a>
+        </div>
+        <br><a href="http://shooter.jurjen-portfolio.nl/" target="_blank" class="tag">Spelletje spelen?</a>
+      </section>
+      <p>© <span id="year"></span> dit is een voet 🦶</p>
+    </div>
+  </footer>
+
+  <script src="nav.js"></script>
+  <script>
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+  const qs = new URLSearchParams(location.search);
+  const params = Object.fromEntries(qs.entries());
+  const has = (k) => Object.prototype.hasOwnProperty.call(params, k);
+  const pick = (obj, keys) => keys.reduce((o,k)=>{ if (obj[k] != null) o[k]=obj[k]; return o; },{});
+  const withQs = (url, extra={}) => {
+    const fwd = pick(params, Object.keys(params).filter(k=>!['bannerId','title','brand'].includes(k)));
+    Object.assign(fwd, extra);
+    const s = new URLSearchParams(fwd).toString();
+    return s ? url+(url.includes('?')?'&':'?')+s : url;
+  };
+  function humanizeId(id){
+    if(!id) return '';
+    const spaced = id.replace(/[-_]+/g,' ').replace(/top/gi,' Top ').replace(/\s+/g,' ').trim();
+    const lowers = new Set(['en','de','het','van','voor','bij','op','een','der']);
+    return spaced.split(' ').map((w,i)=>i&&lowers.has(w.toLowerCase())?w.toLowerCase():w[0]?w[0].toUpperCase()+w.slice(1):w).join(' ');
+  }
+const CAMPAIGNS = {
+  "kiosk-airfryer": {
+    title: "Kiosk Airfryer actie",
+    text: `
+      <h2>Project</h2>
+      <p>Kiosk (de online stationswinkel van DPG) wilde meer abonnementen verkopen door Airfryers weg te geven in ruil voor een abonnement.</p>
+
+      <h3>De uitdaging</h3>
+      <p>De campagne werd groots uitgerold over het volledige DPG-netwerk. Dit betekende dat voor vrijwel ieder merk een eigen IAB-set en site skin ontwikkeld moest worden, met consistente kwaliteit en performance.</p>
+
+      <h3>De oplossing</h3>
+      <p>In samenwerking met de designer heb ik het campagneconcept vertaald naar een schaalbaar front-end systeem. Door banners modulair op te bouwen konden varianten efficiënt worden geproduceerd en consistent worden uitgerold over verschillende titels.</p>
+
+      <h3>Hoe het werkt</h3>
+      <ul>
+        <li>HTML5 banners voor meerdere IAB-formaten</li>
+        <li>Consistente visuele hiërarchie voor snelle boodschapoverdracht</li>
+        <li>Herbruikbare componenten voor efficiënte productie</li>
+      </ul>
+
+      <h3>Resultaat</h3>
+      <p>Een schaalbare campagne die efficiënt kon worden uitgerold over meerdere merken, met consistente kwaliteit en duidelijke communicatie van de actie.</p>
+
+      <h3>Techniek</h3>
+      <div><span class="tag">HTML</span> • <span class="tag">CSS</span> • <span class="tag">JavaScript</span> • <span class="tag">GSAP</span></div>
+    `
+  },
+
+  "donaldduck-campagne-voorjaar-2025": {
+    title: "Donald Duck campagne",
+    text: `
+      <h2>Project</h2>
+      <p>Donald Duck is een sterk merk, maar vraagt om creatieve campagnes om top-of-mind te blijven bij een brede doelgroep.</p>
+
+      <h3>De uitdaging</h3>
+      <p>Banners worden vaak snel genegeerd. De uitdaging was om een vorm te vinden die past bij het speelse karakter van Donald Duck én gebruikers actief betrekt.</p>
+
+      <h3>De oplossing</h3>
+      <p>In plaats van een traditionele banner heb ik een interactief spelconcept ontwikkeld binnen de site skin. Hierdoor werd de advertentie een ervaring op zichzelf, in plaats van alleen een visuele boodschap.</p>
+
+      <h3>Hoe het werkt</h3>
+      <ul>
+        <li>Interactief spel geïntegreerd in de site skin</li>
+        <li>Lichtgewicht animaties voor snelle laadtijden</li>
+        <li>Direct begrijpbare interactie zonder uitleg</li>
+      </ul>
+
+      <h3>Resultaat</h3>
+      <p>Gebruikers bleven langer betrokken bij de advertentie en gingen actief met de campagne aan de slag, wat zorgde voor meer engagement dan traditionele display-uitingen.</p>
+
+      <h3>Techniek</h3>
+      <div><span class="tag">HTML</span> • <span class="tag">CSS</span> • <span class="tag">JavaScript</span> • <span class="tag">GSAP</span></div>
+    `
+  },
+
+  "joe-80stop800-2025": {
+    title: "Joe 80s Top 800",
+    text: `
+      <h2>Project</h2>
+      <p>Voor de jaarlijkse Joe 80s Top 800 moest een displaycampagne ontwikkeld worden die aansluit bij het live karakter van radio.</p>
+
+      <h3>De uitdaging</h3>
+      <p>De campagne moest niet alleen opvallen, maar ook relevant blijven tijdens de uitzending. Statische banners zouden snel hun waarde verliezen.</p>
+
+      <h3>De oplossing</h3>
+      <p>Ik heb een dynamische campagne ontwikkeld waarbij banners realtime gekoppeld waren aan de radio-uitzending. Hierdoor werd de content continu geüpdatet en bleef de advertentie actueel.</p>
+
+      <h3>Hoe het werkt</h3>
+      <ul>
+        <li>Realtime data opgehaald via een API</li>
+        <li>Huidige en aankomende nummers dynamisch weergegeven</li>
+        <li>Content automatisch geüpdatet tijdens de uitzending</li>
+      </ul>
+
+      <h3>Resultaat</h3>
+      <p>De campagne voelde direct verbonden met de live uitzending, wat zorgde voor een relevantere en dynamischere gebruikerservaring.</p>
+
+      <h3>Techniek</h3>
+      <div><span class="tag">HTML</span> • <span class="tag">CSS</span> • <span class="tag">JavaScript</span> • <span class="tag">GSAP</span> • <span class="tag">API integratie</span></div>
+    `
+  },
+
+  "autotrack-25jaar": {
+    title: "Autotrack 25 jaar",
+    text: `
+      <h2>Project</h2>
+      <p>Voor het 25-jarig jubileum van Autotrack werd een campagne ontwikkeld met focus op financieel voordeel.</p>
+
+      <h3>De uitdaging</h3>
+      <p>Het concept draaide om geld en besparing. De uitdaging was om dit visueel aantrekkelijk en direct begrijpbaar te maken binnen een banner.</p>
+
+      <h3>De oplossing</h3>
+      <p>Ik heb een dynamische optel-animatie ontwikkeld waarmee bedragen visueel oplopen. Hierdoor werd het voordeel niet alleen verteld, maar ook ervaren door de gebruiker.</p>
+
+      <h3>Hoe het werkt</h3>
+      <ul>
+        <li>Site skin rondom de pagina</li>
+        <li>Dynamische optel-animatie van bedragen</li>
+        <li>Animaties aangestuurd via JavaScript</li>
+      </ul>
+
+      <h3>Resultaat</h3>
+      <p>De visuele focus op groeiende bedragen maakte het financiële voordeel direct duidelijk en versterkte de impact van de campagne.</p>
+
+      <h3>Techniek</h3>
+      <div><span class="tag">HTML</span> • <span class="tag">CSS</span> • <span class="tag">JavaScript</span> • <span class="tag">GSAP</span></div>
+    `
+  },
+
+  "videoland-sleepers": {
+    title: "Videoland — Sleepers",
+    formats: ["300x600"],
+    skin: false,
+    text: `
+      <h2>Project</h2>
+      <p>Voor de serie Sleepers van Videoland is een displaycampagne ontwikkeld om de serie onder de aandacht te brengen.</p>
+
+      <h3>De uitdaging</h3>
+      <p>Binnen de beperkte ruimte van een banner moest direct de juiste sfeer worden neergezet en de aandacht worden vastgehouden.</p>
+
+      <h3>De oplossing</h3>
+      <p>Ik heb een geanimeerde banner ontwikkeld waarin de trailer centraal staat. Door gebruik te maken van timing en motion wordt de spanning van de serie direct opgebouwd.</p>
+
+      <h3>Hoe het werkt</h3>
+      <ul>
+        <li>Trailer geïntegreerd als visueel middelpunt</li>
+        <li>Gefaseerde opbouw voor spanningsboog</li>
+        <li>Geoptimaliseerd voor performance binnen advertentieomgevingen</li>
+      </ul>
+
+      <h3>Resultaat</h3>
+      <p>Een visueel sterke banner die direct de toon van de serie overbrengt en gebruikers nieuwsgierig maakt om verder te kijken.</p>
+
+      <h3>Techniek</h3>
+      <div><span class="tag">HTML</span> • <span class="tag">CSS</span> • <span class="tag">JavaScript</span> • <span class="tag">GSAP</span> • <span class="tag">Video integratie</span></div>
+    `
+  }
+};
+
+  const IAB_FORMATS = [
+    { size:'300x600', label:'Half Page',  meta:['HTML','CSS','JavaScript','GSAP'] },
+    { size:'300x250', label:'Square',     meta:['HTML','CSS','JavaScript','GSAP'] },
+    { size:'970x250', label:'Billboard',  meta:['HTML','CSS','JavaScript','GSAP'], fullwidth:true },
+  ];
+  const TITLE_BY_ID = { 'joe-80stop800-2025':'Joe 80s Top 800','joe-80stop800-2025-skin':'Joe 80s Top 800','qmusic-new-top-1020-2025':'Qmusic Top 1020' };
+  const BRAND_MAP = { joe:'Joe', qmusic:'Qmusic' };
+
+  function mountCampaignText(rawId){
+    const baseId = rawId.replace(/-skin$/,'');
+    const campaign = CAMPAIGNS[baseId];
+    if(!campaign) return;
+    const panel = document.getElementById('campaign-info');
+    panel.querySelector('.campaign-text').innerHTML = campaign.text;
+    panel.hidden = false;
+  }
+  function renderCard({size,label,meta=[],fullwidth}){
+    const [w,h] = size.split('x').map(Number);
+    const art = document.createElement('article');
+    art.className = 'card'+(fullwidth?' fullwidth':'');
+    art.dataset.size = size;
+    const hdr = document.createElement('header');
+    hdr.innerHTML = `<div><strong>${label}</strong><div class="size">${w} × ${h}</div></div><div class="meta">${meta.map(m=>`<span class="badge">${m}</span>`).join('')}</div>`;
+    const ifr = document.createElement('iframe');
+    ifr.className='banner'; ifr.title=`${size} – bannerframe`; ifr.width=w+1; ifr.height=h+1; ifr.loading='lazy'; ifr.allow='autoplay';
+    art.append(hdr,ifr);
+    return art;
+  }
+  function mountGallery(baseId){
+    const gallery = document.getElementById('gallery');
+    gallery.innerHTML = '';
+    const campaign = CAMPAIGNS[baseId];
+    const show = campaign?.formats || IAB_FORMATS.map(f=>f.size);
+    IAB_FORMATS.forEach(cfg=>{
+      if(!show.includes(cfg.size)) return;
+      if(isMobile && cfg.size==='970x250'){ const m=document.createElement('div'); m.className='card message'; m.innerHTML=`<p>Dit formaat is niet beschikbaar op mobiel.</p>`; gallery.appendChild(m); return; }
+      gallery.appendChild(renderCard(cfg));
+    });
+    gallery.querySelectorAll('article.card[data-size] iframe.banner').forEach(f=>{
+      const size = f.closest('article.card').dataset.size;
+      f.src = withQs(`./banners/${size}/${baseId}-${size}/index.html`);
+    });
+  }
+  function mountSkin(skinId){
+    const panel = document.getElementById('skin-panel');
+    if(isMobile){ panel.innerHTML=`<div class="skin-message"><p>De site skin is alleen zichtbaar op desktop.</p></div>`; panel.hidden=false; return; }
+    const topEl=panel.querySelector('.skin-top iframe'), leftEl=panel.querySelector('.skin-left iframe'), rightEl=panel.querySelector('.skin-right iframe');
+    const dTop=withQs(`./banners/skin/${skinId}/top.html`), mTop=withQs(`./banners/skin/${skinId}/768x100/index.html`);
+    const mq=window.matchMedia('(max-width:900px)');
+    const setTop=()=>{ if(topEl) topEl.src=mq.matches?mTop:dTop; };
+    setTop(); mq.addEventListener?.('change',setTop);
+    if(leftEl) leftEl.src=withQs(`./banners/skin/${skinId}/left.html`);
+    if(rightEl) rightEl.src=withQs(`./banners/skin/${skinId}/right.html`);
+    panel.hidden=false;
+  }
+  function updateTitleAndBrand(rawId){
+    const baseId=rawId.replace(/-skin$/,'');
+    const mapped=params.title?decodeURIComponent(params.title):(TITLE_BY_ID[rawId]||TITLE_BY_ID[baseId]);
+    document.getElementById('page-title').textContent = mapped||humanizeId(baseId);
+    const slug=baseId.split('-')[0]||'';
+    const tc=(s)=>String(s||'').split(/[-_ ]+/).filter(Boolean).map(w=>w[0]?w[0].toUpperCase()+w.slice(1).toLowerCase():'').join(' ');
+    document.getElementById('brand-chip').textContent = (params.brand||'').trim()||BRAND_MAP[slug.toLowerCase()]||tc(slug)||'Brand';
+  }
+  (function init(){
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const rawId=(params.bannerId||'').trim();
+    if(!rawId) return;
+    const isSkinOnly=rawId.endsWith('-skin');
+    const baseId=rawId.replace(/-skin$/,'');
+    if(!isSkinOnly) mountGallery(baseId);
+    if(isSkinOnly) document.querySelector('[aria-label="IAB formaten"]').style.display='none';
+    const campaign=CAMPAIGNS[baseId];
+    const hasSkin=campaign?.skin!==false;
+    if(hasSkin){ mountSkin(isSkinOnly?rawId:`${baseId}-skin`); } else { const p=document.getElementById('skin-panel'); if(p) p.style.display='none'; }
+    updateTitleAndBrand(rawId);
+    mountCampaignText(rawId);
+    window.addEventListener('keydown',(e)=>{ if(e.key==='Escape') document.activeElement?.blur?.(); });
+  })();
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/SplitText.min.js"></script>
+  <script src="gsap.js"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+/* Fonts */
+@font-face {
+	font-family: 'burbank';
+	src: url('BurbankBigRegular-Bold.woff2') format('woff2'), url('BurbankBigRegular-Bold.woff') format('woff');
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'burbank condensend';
+	src: url('BurbankBigCondensed-Bold.woff2') format('woff2'), url('BurbankBigCondensed-Bold.woff') format('woff');
+	font-weight: 700;
+	font-style: normal;
+}
+/* Reset */
+
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	outline: none;
+	text-rendering: optimizeLegibility !important;
+	-webkit-font-smoothing: antialiased !important;
+}
+
+body {
+	background: none;
+}
+
+#stage {
+	width: 768px;
+	height: 100px;
+	background: #FFF;
+	position: absolute;
+	cursor: pointer;
+	overflow: hidden;
+	border:1px solid #efefef;
+	padding: 10px;
+}
+
+.hiddenOnload {
+	opacity:0;
+}
+
+.logo {
+	position: absolute;
+	top:50%;
+	left:50%;
+	width:80px;
+	transform:translate(-50%, -50%)
+}
+.content{
+	display: flex;
+	flex-direction: row;
+	width: calc(100% - 0px);
+	height: calc(100% - 0px);
+	justify-content: space-evenly;
+	align-items: center;
+	background-color: #FFCC00;
+	background-image: url(bg.png);
+	border:solid 3px #000;
+}
+.copy{
+	width: 158.27px;
+	height: 60px;
+}
+.joch{
+	width: 106.075px;
+}
+.prijs{
+	width: 86.441px;
+	height: 72.77px;
+}
+.cadeau{
+	width: 54.494px;
+	height: 54.494px;
+}
+.cta{
+	/* transform: translateX(-50%) !important; */
+	display: flex;
+	width: 184.896px;
+	height: 32.4px;
+	padding: 7.159px 11.454px;
+	justify-content: center;
+	align-items: center;
+	gap: 8.591px;
+	flex-shrink: 0;
+	border-radius: 11.454px;
+	background: #E30513;
+}
+.ctaCopy{
+	color:  #FFF;
+	text-align: center;
+	font-feature-settings: 'liga' off, 'clig' off;
+	font-family: "burbank";
+	font-size: 12.886px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 111.111%;
+}
+.arrow{
+	width: 17.181px;
+	height: 17.181px;
+	flex-shrink: 0;
+}

@@ -1,0 +1,126 @@
+/* Fonts */
+@font-face {
+	font-family: 'AnekLatin-ExtraBold';
+	src: url('https://static.pexi.nl/dpg/fonts/AnekLatin-ExtraLight.woff2') format('woff2'),
+	url('AnekLatin-ExtraBold.woff') format('woff');
+}
+@font-face {
+	font-family: 'AnekLatin-SemiBold';
+	src: url('https://static.pexi.nl/dpg/fonts/AnekLatin-SemiBold.woff2') format('woff2'),
+	url('https://static.pexi.nl/dpg/fonts/AnekLatin-SemiBold.woff') format('woff');
+}
+@font-face {
+	font-family: 'AnekLatin-Light';
+	src: url('https://static.pexi.nl/dpg/fonts/AnekLatin-ExtraLight.woff2') format('woff2'),
+	url('https://static.pexi.nl/dpg/fonts/AnekLatin-ExtraLight.woff') format('woff');
+}
+
+/* Reset */
+
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	outline: none;
+	text-rendering: optimizeLegibility !important;
+	-webkit-font-smoothing: antialiased !important;
+}
+
+body {
+	background: none;
+}
+.hiddenOnload{
+	opacity: 0;
+}
+#stage {
+	width: 768px;
+	height: 100px;
+	position: relative;
+	cursor: pointer;
+	overflow: hidden;
+	background: #FDE380 ;
+}
+
+.all {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100px;
+    padding: 0px 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+.cta{
+    display: flex;
+    justify-self: flex-end;
+}
+img.logo {
+    width: 91.999px;
+    height: 22.967px;
+    left: 33px;
+    top: 39px;
+    position: absolute;
+}
+.copy {
+    color: #191D4C;
+    font-family: "AnekLatin-Light";
+    font-size: 28px;
+    font-style: normal;
+    line-height: 28px;
+    position: absolute;
+    left: 166px;
+    top: 24px;
+}
+
+.copy span{
+	color: #191D4C;
+font-family: "AnekLatin-SemiBold";
+font-size: 28px;
+font-style: normal;
+line-height: 28px;
+}
+
+/* Bol styling */
+.bol{
+  position: absolute;
+  top: 16px;
+  left:595px;
+  width: 68px;
+  height: 68px;
+  color: #191D4C;
+  background-color: #fff;
+  z-index: 5;
+  border-radius: 99px;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+  align-self: center;
+}
+.bol div{
+  position: absolute;
+}
+.twv{
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10px;
+    font-family: 'anekLatin-semiBold';
+    font-size: 11.93px;
+    line-height: 24.7px;
+    letter-spacing: -1%;
+}
+.geld{
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'anekLatin-semiBold';
+    top: 24px;
+    font-size:16.86px;
+    line-height:24.9px;
+}
+.airfryer{
+    position: absolute;
+    left: 510px;
+    top: 7px;
+    width: 110px;
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1, user-scalable=no">
+
+	<script src="https://static.pexi.nl/pexi.js"></script>
+</head>
+
+<body>
+	<div id="stage" class="hiddenOnload" >
+		<div class="backdrop"></div>
+		<div class="main">
+			<img src="Back.png" alt="" class="back">
+
+
+
+			<img src="seizoen.svg" alt="" class="seizoen">
+			<img src="Rood.gif" alt="" class="rood">
+			<img src="blauw.gif" alt="" class="blauw">
+			
+			<img src="flare_logo.png" alt="" class="flair">
+
+			<img src="LOGO.png" alt="" class="logo">				
+			<!-- <img src="LEFT leeg.png" alt="" class="leftLeeg"> -->
+			<div class="video myVideo">	</div>
+			<div class="gradient"></div>
+			<div class="zwart"></div>
+			<img src="LEFT.png" alt="" class="left">
+			<img src="Robert.png" alt="" class="robert">
+			<!-- <img src="RIGHT leeg.png" alt="" class="rightLeeg"> -->
+			<img src="RIGHT.png" alt="" class="right">
+			
+			<img src="Rectangle 3.png" alt="" class="rect3">
+			<img src="Rectangle 4.png" alt="" class="rect4">
+			<img src="Rectangle 2.png" alt="" class="rect2">
+			<img src="Rectangle 1.png" alt="" class="rect1">
+
+			<img src="label.svg" alt="" class="label">
+			<div class="copy">
+				<div class="row1">Voor je familie</div>
+				<div class="row2">doe je alles</div>
+			</div>
+
+			<div class="cta">
+				<div class="countDownTekst"><div class="aantalDagen bold"></div></div>
+			</div>
+
+		</div>
+		<div class="clicklayer" onclick="pexi.click();">
+			<div class="hoverLeft"></div>
+			<div class="hoverRight"></div>
+		</div>
+		<div class='pexi_play pexi_control'><img src='play.svg' ></div>
+
+			<div id="audio-control">
+				<svg class="active" id="mute" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg" >
+						<rect width="26.6487" height="26.6487" rx="13.3243" fill="black" fill-opacity="0.49"/>
+						<path d="M12.1954 8.03917L9.74383 10.581H6.93161C6.56623 10.581 6.27029 10.8879 6.27029 11.2668V15.3817C6.27029 15.7603 6.56623 16.0675 6.93161 16.0675H9.74383L12.1954 18.6093C12.6095 19.0388 13.3243 18.7371 13.3243 18.1244V8.5241C13.3243 7.91086 12.609 7.61025 12.1954 8.03917ZM18.9906 13.3243L20.2482 12.0201C20.4218 11.84 20.4218 11.548 20.2482 11.368L19.6194 10.7159C19.4458 10.5358 19.1642 10.5358 18.9906 10.7159L17.733 12.0201L16.4754 10.7159C16.3018 10.5358 16.0202 10.5358 15.8466 10.7159L15.2178 11.368C15.0442 11.548 15.0442 11.84 15.2178 12.0201L16.4754 13.3243L15.2181 14.6282C15.0445 14.8082 15.0445 15.1002 15.2181 15.2803L15.8469 15.9324C16.0205 16.1124 16.3021 16.1124 16.4757 15.9324L17.733 14.6284L18.9906 15.9326C19.1642 16.1127 19.4458 16.1127 19.6194 15.9326L20.2482 15.2805C20.4218 15.1005 20.4218 14.8085 20.2482 14.6284L18.9906 13.3243Z" fill="white"/>
+						</svg>
+				<svg version="1.1" class="unactive" id="unmute" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+						viewBox="0 0 26.6 26.6" style="enable-background:new 0 0 26.6 26.6;" xml:space="preserve">
+				   <path class="st0" d="M-386.7-386.7"/>
+				   <path class="st1" d="M13.3,0L13.3,0c7.4,0,13.3,6,13.3,13.3v0c0,7.4-6,13.3-13.3,13.3h0C6,26.6,0,20.7,0,13.3v0C0,6,6,0,13.3,0z"/>
+				   <path class="st2" d="M12.2,8l-2.5,2.5H6.9c-0.4,0-0.7,0.3-0.7,0.7v4.1c0,0.4,0.3,0.7,0.7,0.7h2.8l2.5,2.5c0.4,0.4,1.1,0.1,1.1-0.5
+					   V8.5C13.3,7.9,12.6,7.6,12.2,8z"/>
+				   <path class="st2" d="M16.9,6.2c0.3-0.3,0.7-0.3,1,0c4,4,4,10.6,0,14.6c-0.3,0.3-0.7,0.2-1,0c-0.3-0.3-0.3-0.7,0-1
+					   c3.5-3.5,3.5-9.1,0-12.6c0,0,0,0,0,0C16.6,6.9,16.6,6.5,16.9,6.2L16.9,6.2z"/>
+				   <path class="st2" d="M15.8,8.7c-0.3-0.3-0.9-0.3-1.2,0s-0.3,0.9,0,1.2c2,2,2,5.2,0,7.1c0,0,0,0,0,0c-0.3,0.3-0.3,0.9,0,1.2
+					   c0.3,0.3,0.8,0.3,1.1,0C18.4,15.6,18.4,11.4,15.8,8.7L15.8,8.7z"/>
+				   </svg>
+				   <svg id="replay" class="replay unactive" width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<circle cx="23" cy="23" r="23" fill="black" fill-opacity="0.75"/>
+					<path class="pijl" d="M14 15.2414V20.8276C14 21.5259 14.5819 22.069 15.2414 22.069H20.8276C21.5259 22.069 22.069 21.5259 22.069 20.8276C22.069 20.1681 21.5259 19.5862 20.8276 19.5862H18.3836C19.5474 18.0733 21.3707 17.1422 23.3491 17.1422C26.7629 17.1422 29.5172 19.8966 29.5172 23.3103C29.5172 26.7629 26.7629 29.5172 23.3491 29.5172C21.9914 29.5172 20.7112 29.0905 19.625 28.2759C19.0819 27.8879 18.306 28.0043 17.8793 28.5474C17.4526 29.0905 17.569 29.8664 18.1121 30.2931C19.625 31.4181 21.4483 32 23.3491 32C28.1207 32 32 28.1207 32 23.3103C32 18.5388 28.1207 14.6595 23.3491 14.6595C20.6336 14.6595 18.1509 15.9009 16.4828 17.9957V15.2414C16.4828 14.5819 15.9397 14 15.2414 14C14.5819 14 14 14.5819 14 15.2414Z" fill="white"/>
+					</svg>
+					
+			</div>
+
+		<div class="beginframe">
+			<img src="CoralGradient.png" alt="" class="CoralGradient">	
+			<img src="videolandlogo.svg" alt="" class="videoland">
+		</div>
+	</div>
+
+	<!-- JavaScript bestanden -->
+	<script src="https://static.pexi.nl/general/jquery.min.js"></script>
+	<script src="https://static.pexi.nl/general/gsap_3.9.1_min.js"></script>
+	<script src="main.js"></script>
+	
+</body>
+
+</html>

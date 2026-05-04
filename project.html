@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1 viewport-fit=cover"  />
+    <title>Jurjen Veenstra Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="img/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+ <link rel="manifest" href="img/favicon/site.webmanifest">
+ <meta name="theme-color" content="#0b0d12">
+</head>
+<body>
+    <header class="nav">
+    <div class="container navbar">
+      <div class="home">
+        <strong><a id="home" href="index.html">Jurjen Veenstra</a></strong>
+        <button class="menu-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <nav class="navlinks" id="werk-navlinks">
+        <a href="index.html#projecten">Werk</a>
+        <a href="index.html#about">Over</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+    </header>
+  <script src="nav.js"></script>
+  <script>
+    // ensure CTA system link points to configured URL (kept for parity with home)
+    (function(){
+      var cta = document.getElementById('cta-system');
+      if(cta) cta.href = "https://jouw-systeem-url.nl"; // pas aan naar echte URL
+    })();
+  </script>
+ 
+  <!-- PROJECT HERO — groen vlak -->
+  <div class="proj-page-hero">
+    <div class="container">
+      <a href="index.html" class="back-link">← Terug naar portfolio</a>
+      <h1 class="title">Project — naam</h1>
+      <div class="meta-row" id="badges"></div>
+    </div>
+  </div>
+
+  <!-- wave groen → donker -->
+  <div style="background:var(--green);line-height:0;margin-top:-1px; transform: rotate(180deg); display: flex; width: 100vw;">
+    <svg viewBox="0 0 1440 48" width="100vw" preserveAspectRatio="none" height="48" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0 L1440 0 L1440 48 Q720 0 0 48 Z" fill="#0b0d0a"/>
+    </svg>
+  </div>
+
+   <div class="wrap">
+
+    <!-- LARGER PHOTO / HERO -->
+    <div class="hero-large panel">
+      <img id="heroImage" class="hero-img" src="" alt="Project diagram / screenshot">
+      <div class="hero-meta">
+        <div class="left">
+          <div class="kicker" id="kicker">Uitgebreide Case Study</div>
+          <div style="font-weight:700;font-size:18px" class="title">Project</div>
+        </div>
+        <div class="metrics">
+          <div class="metric" id="metric1">Automatisering: 100%</div>
+          <div class="metric" id="metric2">Tijdswinst: ~2 uur/week</div>
+          <div style="width:10px"></div>
+          <button id="openLight" class="cta">Open groot</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-grid">
+      <main>
+        <div class="panel">
+          <p id="summary" class="summary"></p>
+
+          <div class="case">
+            <div>
+              <h3>Project: <span id="case-title"></span></h3>
+            </div>
+
+            <div>
+              <h3>De Uitdaging</h3>
+              <p id="challenge"></p>
+            </div>
+
+            <div>
+              <h3>De Oplossing</h3>
+              <p id="solution"></p>
+            </div>
+
+            <div>
+              <h3>Hoe het werkt</h3>
+              <ul id="how" class="list"></ul>
+            </div>
+
+            <div>
+              <h3>Technische Highlights</h3>
+              <ul id="tech" class="list"></ul>
+            </div>
+
+            <div>
+              <h3>Resultaat</h3>
+              <p id="result"></p>
+            </div>
+          </div>
+        </div>
+
+        <div style="height:14px"></div>
+
+       
+      </main>
+
+      <aside class="right-col">
+        <div class="panel">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <strong style="font-size:14px">Project Details</strong>
+            <div style="font-size:12px;color:var(--muted)">Status: afgerond</div>
+          </div>
+
+          <div style="height:12px"></div>
+          <div style="font-size:13px;color:#cfe1ff">
+            <div><strong>Rol:</strong> <span id="role"></span></div>
+          </div>
+        </div>
+
+        <div style="height:12px"></div>
+
+        <div class="panel">
+          <h4 style="margin:0 0 8px 0">Badges</h4>
+          <div id="badgesRight" class="tech"></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- lightbox -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-hidden="true">
+    <img id="lightImg" src="" alt="Grote weergave">
+  </div>
+   <footer class="footer ch-contact">
+  <div class="container">
+     <section id="contact" class="section">
+      <h2>Laten we iets <em>bouwen</em>.</h2>
+        <p>Neem contact met mij op via mail, LinkedIn of Instagram.</p>
+        <div class="socials">
+              <a href="mailto:jurjen.veenstra@hotmail.nl" target="_blank" class="tag">jurjen.veenstra@hotmail.nl</a>
+              <a href="https://www.linkedin.com/in/jurjen-veenstra/" target="_blank" class="tag">LinkedIn</a>
+              <a href="https://www.instagram.com/jurjen_veenstra/" target="_blank" class="tag">Instagram</a>
+        </div>
+           <br> <a href="http://shooter.jurjen-portfolio.nl/" target="_blank" class="tag">Spelletje spelen?</a>
+    </section>
+    © <span id="year"></span> dit is een voet 🦶
+  </div>
+  </footer>
+
+  <script>
+    // unified project loader: projects + banners
+    const projects = {
+      "automated-pm-assistant": {
+        id: "automated-pm-assistant",
+        title: "Automated PM Assistant",
+        date: "2025",
+        role: "Automation Engineer",
+        summary: "Automatiseert projectrapportages door data uit meerdere tools te combineren en met AI om te zetten in heldere statusupdates.",
+        
+        challenge: "Projectinformatie zat verspreid over Google Sheets en Monday.com. Het combineren, controleren en samenvatten van deze data was handmatig, foutgevoelig en kostte wekelijks veel tijd.",
+
+        solution: "Ik heb een centrale n8n-workflow ontworpen die data ophaalt, opschoont en verrijkt met AI-analyse. In plaats van alleen te synchroniseren, vertaalt de workflow ruwe data naar begrijpelijke inzichten en updates voor het team.",
+
+        how: [
+          "Automatische data-aggregatie via geplande workflows",
+          "Opschonen en normaliseren met custom JavaScript",
+          "AI-analyse voor samenvattingen en risico-inschattingen",
+          "Automatische updates naar Slack en Monday.com"
+        ],
+
+        highlights: [
+          "Van ruwe data naar bruikbare inzichten",
+          "Volledig geautomatiseerde statusrapportage",
+          "Betrouwbare output via gestructureerde AI responses",
+          "Naadloze integratie tussen meerdere tools"
+        ],
+
+        result: "De wekelijkse statusronde is volledig geautomatiseerd. Teams hebben realtime inzicht en besteden aanzienlijk minder tijd aan handmatige rapportage.",
+
+        badges: ["n8n", "AI", "Automation", "JavaScript"],
+        screenshot: "img/workflows/screenshot-monday-planner.webp",
+        image: "img/workflows/screenshot-monday-planner.webp"
+      },
+      "autonomous-ai-mail-agent": {
+        id: "autonomous-ai-mail-agent",
+        title: "AI Mail Agent",
+        date: "2025",
+        role: "Automation Engineer",
+        summary: "Een slimme mail-assistent die inkomende e-mails analyseert en automatisch acties uitvoert zoals labelen, prioriteren en notificeren.",
+
+        challenge: "Een drukke inbox met verschillende soorten e-mails maakte handmatig verwerken traag en onoverzichtelijk. Simpele filters misten context en prioriteit.",
+
+        solution: "Ik heb een AI-gedreven workflow ontwikkeld die e-mails begrijpt op inhoud in plaats van alleen keywords. Door gestructureerde output te gebruiken kan de workflow betrouwbaar acties uitvoeren.",
+
+        how: [
+          "Inkomende e-mails ophalen via Gmail API",
+          "Data voorbereiden en structureren met JavaScript",
+          "AI-analyse voor classificatie en prioriteit",
+          "Automatische acties zoals labels en Slack alerts"
+        ],
+
+        highlights: [
+          "Contextuele AI-analyse in plaats van simpele filters",
+          "Betrouwbare automatisering via structured output",
+          "Deduplicatie om dubbele acties te voorkomen",
+          "Directe alerts voor belangrijke berichten"
+        ],
+
+        result: "Snellere verwerking van e-mails, minder gemiste berichten en een overzichtelijke inbox zonder handmatig werk.",
+
+        badges: ["AI", "Automation", "Gmail API", "n8n"],
+        screenshot: "img/workflows/mail-agent.webp",
+        image: "img/workflows/mail-agent.webp"
+      }
+};
+
+    function q(v){ return new URLSearchParams(location.search).get(v); }
+
+    function render(proj){
+      if(!proj){
+        document.title = 'Project niet gevonden — Portfolio';
+        if(document.querySelectorAll('.title')) document.querySelectorAll('.title').textContent = 'Project niet gevonden';
+        return;
+      }
+      document.title = proj.title + ' — Portfolio';
+      if(document.querySelectorAll('.title'))document.querySelectorAll('.title').forEach(el => {el.textContent = proj.title;});
+      if(document.getElementById('case-title')) document.getElementById('case-title').textContent = proj.title;
+      if(document.getElementById('summary')) document.getElementById('summary').textContent = proj.summary || '';
+      if(document.getElementById('challenge')) document.getElementById('challenge').textContent = proj.challenge || '';
+      if(document.getElementById('solution')) document.getElementById('solution').textContent = proj.solution || '';
+      if(document.getElementById('result')) document.getElementById('result').textContent = proj.result || '';
+      if(document.getElementById('role')) document.getElementById('role').textContent = proj.role || '';
+      if(document.getElementById('date')) document.getElementById('date').textContent = proj.date || '';
+
+      // badges
+      const badgesTop = document.getElementById('badges'); if(badgesTop) badgesTop.innerHTML = '';
+      const badgesRight = document.getElementById('badgesRight'); if(badgesRight) badgesRight.innerHTML = '';
+      (proj.badges||[]).forEach(b=>{
+        const el = document.createElement('span'); el.className='badge'; el.textContent = b;
+        if(badgesTop) badgesTop.appendChild(el);
+        if(badgesRight) badgesRight.appendChild(el.cloneNode(true));
+      });
+
+      // lists
+      const how = document.getElementById('how'); if(how){ how.innerHTML=''; (proj.how||[]).forEach(i=>{ const li=document.createElement('li'); li.textContent=i; how.appendChild(li); }); }
+      const tech = document.getElementById('tech'); if(tech){ tech.innerHTML=''; (proj.highlights||[]).forEach(i=>{ const li=document.createElement('li'); li.textContent=i; tech.appendChild(li); }); }
+
+      // images
+      const hero = document.getElementById('heroImage'); if(hero) hero.src = proj.screenshot || proj.image || '';
+      const lightImg = document.getElementById('lightImg'); if(lightImg) lightImg.src = proj.screenshot || proj.image || '';
+
+      // set demo link (points index.html?bannerId=<id>)
+      const demo = document.getElementById('openDemo');
+      if(demo){
+        demo.href = 'index.html?bannerId=' + encodeURIComponent(proj.id || '');
+        // show the demo button for banner-like projects (heuristic: id contains '-' or starts with known prefixes)
+        if(proj.id && (proj.id.includes('-') || proj.demoUrl || proj.image && proj.image.includes('kiosk'))) {
+          demo.style.display = 'inline-block';
+        } else {
+          demo.style.display = 'none';
+        }
+      }
+    }
+
+    // lightbox handlers
+    const lightbox = document.getElementById('lightbox');
+    document.getElementById('openLight').addEventListener('click', ()=>{ lightbox.classList.add('show'); lightbox.setAttribute('aria-hidden','false'); });
+    lightbox.addEventListener('click', ()=>{ lightbox.classList.remove('show'); lightbox.setAttribute('aria-hidden','true'); });
+
+    (function(){ const id = q('id'); render(projects[id]); })();
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" integrity="" crossorigin="anonymous"></script>
+  <script src="gsap.js"></script>
+</body>
+</html>

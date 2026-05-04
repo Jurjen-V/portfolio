@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <script src="https://static.pexi.nl/general/jquery.min.js"></script>
+  <script src="https://static.pexi.nl/pexi.js"></script>
+
+  <link rel="stylesheet" href="all.css">
+  <link rel="stylesheet" href="top.css">
+</head>
+<body>
+  <div class="wallpaper hiddenOnload"></div>
+	<div id="stage" class="hiddenOnload" onclick="pexi.click();">
+    <img src="logo.svg" alt="" class="logo">
+	</div>
+
+  <script src="https://static.pexi.nl/general/gsap_3.9.1_min.js"></script>
+  <script src="top.js"></script>
+  <script>
+		PEXI.skinsReady(function(){
+			PEXI.skinsWallpaper();
+		});
+	</script>
+</body>
+
+</html>

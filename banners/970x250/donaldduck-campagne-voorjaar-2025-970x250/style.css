@@ -1,0 +1,165 @@
+/* Fonts */
+
+@font-face {
+	font-family: 'burbank';
+	src: url('BurbankBigRegular-Bold.woff2') format('woff2'), url('BurbankBigRegular-Bold.woff') format('woff');
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'burbank condensend';
+	src: url('BurbankBigCondensed-Bold.woff2') format('woff2'), url('BurbankBigCondensed-Bold.woff') format('woff');
+	font-weight: 700;
+	font-style: normal;
+}
+
+
+/* Reset */
+
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	outline: none;
+	text-rendering: optimizeLegibility !important;
+	-webkit-font-smoothing: antialiased !important;
+}
+
+body {
+	background: none;
+}
+
+#stage {
+	width: 970px;
+	height: 250px;
+	position: absolute;
+	cursor: pointer;
+	overflow: hidden;
+	border: 1px solid #ececec;
+	padding:15px;
+	background-color: #fff;
+}
+
+.hiddenOnload {
+	opacity:0;
+}
+.disney{
+	position: absolute;
+	left: 7px;
+	bottom: 20px;
+}
+.content{
+	position: absolute;
+	width: calc(100% - 30px);
+	height:calc(100% - 30px);
+	background-image: url(bg.png);
+	background-color: #FFCC00;
+	border:3px solid #000;
+}
+.dd{
+	width: 233.1px;
+	position: absolute;
+	top: 28px;
+	left:73px;
+}
+.actie{
+	width: 323.25px;
+	height: 272.26px;
+	position: absolute;
+	top: -25px;
+	left: 349px;
+	z-index: 2;
+}
+.prijs{
+	width: 102.62px;
+	height: 102.62px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	rotate:-15deg;
+}
+#prijs1{
+	rotate:-5deg;
+}
+.plus{
+	width:21.05px;
+	height:21.05px;
+	position: absolute;
+	top: 117px;
+	left: 126px;
+	z-index: 2;
+}
+.strandlaken {
+    height: 226.95px;
+    position: absolute;
+    top: 17px;
+    right: 20px;
+    rotate: 8deg;
+}
+.joch{
+	height: 455px;
+	position: absolute;
+	top:-40px;
+	right: -21px;
+}
+.cta{
+	position: absolute;
+	bottom: 22px;
+	left:101px;
+	display: flex;
+	width:190px;
+	height:34.63px;
+	padding: 4.661px 7.457px;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	flex-shrink: 0;
+	border-radius: 11.77px;
+	background: #E30513;
+	z-index: 2;
+}
+.ctaCopy{
+	color:  #FFF;
+	text-align: center;
+	font-feature-settings: 'liga' off, 'clig' off;
+	font-family: "burbank";
+	font-size: 13.24px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 111.111%;
+}
+.arrow{
+	width: calc(13.24px * 1.11);
+	height: calc(13.24px * 1.11);
+	flex-shrink: 0;
+}
+.flip-container {
+  	perspective: 1000px;
+	width: 102.62px;
+	height: 102.62px;
+}
+
+.flip-card {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  position: absolute;
+	position: absolute;
+	top: 54px;
+	left: 10px;
+}
+
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.back {
+  transform: rotateY(180deg);
+}

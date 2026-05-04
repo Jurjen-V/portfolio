@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#stage {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  /* background-color: #fff; */
+}
+.man{
+  width:2244.49px;
+  position: absolute;
+  left: -1186px;
+  bottom: -712px;
+}
+.prijs{
+	width: 375px;
+	height: 274.44px;
+	position: absolute;
+  top: 388px;
+  left: 125px;
+	rotate: 19.6deg;
+	color: #0022B6;
+
+	text-align: center;
+	font-family: "robotoSB";
+	font-style: normal;
+	font-weight: 600;
+	display: flex;
+  	flex-direction: column;
+  	justify-content: center;
+}
+.row1{
+	font-size: 53.14px;
+	line-height: 110%;
+}
+.row2{
+	font-size: 72.46px;
+	line-height: 110%;
+}

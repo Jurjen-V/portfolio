@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0 maximum-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="https://static.pexi.nl/pexi.js"></script>
+  </head>
+
+  <body>
+    <div id="stage" class="hiddenOnload" onclick="pexi.click()">
+
+      <!-- <div id="frame1">
+        <div class="gradient"></div>
+        <div class="kVideoContainer">
+          <div class="kVideo"></div>
+        </div>
+
+        <div class="content">
+          <img src="vrouw.png" class="float" />
+        </div>
+      </div> -->
+
+
+      <div id="frame2">
+        <div class="content">
+          <div class="k">
+            <div class="kContainer">
+              
+              <svg
+                class="kPath"
+                width="244"
+                height="420"
+                viewBox="0 0 244 420"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <defs>
+                  <mask id="svg-mask">
+                    <path
+                      d="M220.797 0H155.782C142.967 0 132.578 10.389 132.578 23.2033V79.688C132.578 85.5301 127.843 90.2662 122.001 90.2662C116.158 90.2662 111.422 85.5301 111.422 79.688V23.2033C111.422 10.389 101.033 0 88.2191 0H23.2033C10.389 0 0 10.389 0 23.2033V396.797C0 409.611 10.389 420 23.2033 420H88.2191C101.033 420 111.422 409.611 111.422 396.797V164.312C111.422 158.47 116.158 153.734 122.001 153.734C127.843 153.734 132.578 158.47 132.578 164.312V396.797C132.578 409.611 142.967 420 155.782 420H220.797C233.611 420 244 409.611 244 396.797V202.188C244 163.743 212.835 132.579 174.391 132.579H143.156C137.314 132.579 132.578 127.843 132.578 121.999C132.578 116.158 137.314 111.422 143.156 111.422H174.391C212.835 111.422 244 80.2566 244 41.8131V23.2033C244 10.389 233.611 0 220.797 0Z"
+                      fill="#fff"
+                    />
+                  </mask>
+                </defs>
+      
+                <!-- K outline (invisible, keeps the shape in the DOM) -->
+                <path
+                  d="M220.797 0H155.782C142.967 0 132.578 10.389 132.578 23.2033V79.688C132.578 85.5301 127.843 90.2662 122.001 90.2662C116.158 90.2662 111.422 85.5301 111.422 79.688V23.2033C111.422 10.389 101.033 0 88.2191 0H23.2033C10.389 0 0 10.389 0 23.2033V396.797C0 409.611 10.389 420 23.2033 420H88.2191C101.033 420 111.422 409.611 111.422 396.797V164.312C111.422 158.47 116.158 153.734 122.001 153.734C127.843 153.734 132.578 158.47 132.578 164.312V396.797C132.578 409.611 142.967 420 155.782 420H220.797C233.611 420 244 409.611 244 396.797V202.188C244 163.743 212.835 132.579 174.391 132.579H143.156C137.314 132.579 132.578 127.843 132.578 121.999C132.578 116.158 137.314 111.422 143.156 111.422H174.391C212.835 111.422 244 80.2566 244 41.8131V23.2033C244 10.389 233.611 0 220.797 0Z"
+                  fill="none"
+                />
+      
+                <!-- Background image masked in the K -->
+                <image
+                  class="bg"
+                  href="usethise.jpg"
+                  x="-162"
+                  y="-80"
+                  height="512"
+                  preserveAspectRatio="xMidYMid slice"
+                  mask="url(#svg-mask)"
+                />
+
+                <!-- NEW: vrouw-copy masked inside the K -->
+                <!-- Tweak x / y / height to align to your comp -->
+
+                <image
+                  class="vrouw-copy-masked A"
+                  href="vrouw1.png"
+                  x="0"
+                  y="10"
+                  height="346"
+                  preserveAspectRatio="xMidYMid meet"
+                  mask="url(#svg-mask)"
+                />
+                <image
+                  class="vrouw-copy-masked B"
+                  href="vrouw2.png"
+                  x="0"
+                  y="-10"
+                  height="346"
+                  preserveAspectRatio="xMidYMid meet"
+                  mask="url(#svg-mask)"
+                />
+                <image
+                  class="tafel"
+                  href="tafel.png"
+                  x="0"
+                  y="0"
+                  height="420"
+                  preserveAspectRatio="xMidYMid slice"
+                  mask="url(#svg-mask)"
+                />
+ 
+              </svg>
+            </div>
+          </div>
+          <div class="k1">
+            <div class="kContainer">
+              <svg
+                class="kPath"
+                width="244"
+                height="420"
+                viewBox="0 0 244 420"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <defs>
+                  <mask id="svg-mask">
+                    <path
+                      d="M220.797 0H155.782C142.967 0 132.578 10.389 132.578 23.2033V79.688C132.578 85.5301 127.843 90.2662 122.001 90.2662C116.158 90.2662 111.422 85.5301 111.422 79.688V23.2033C111.422 10.389 101.033 0 88.2191 0H23.2033C10.389 0 0 10.389 0 23.2033V396.797C0 409.611 10.389 420 23.2033 420H88.2191C101.033 420 111.422 409.611 111.422 396.797V164.312C111.422 158.47 116.158 153.734 122.001 153.734C127.843 153.734 132.578 158.47 132.578 164.312V396.797C132.578 409.611 142.967 420 155.782 420H220.797C233.611 420 244 409.611 244 396.797V202.188C244 163.743 212.835 132.579 174.391 132.579H143.156C137.314 132.579 132.578 127.843 132.578 121.999C132.578 116.158 137.314 111.422 143.156 111.422H174.391C212.835 111.422 244 80.2566 244 41.8131V23.2033C244 10.389 233.611 0 220.797 0Z"
+                      fill="#fff"
+                    />
+                  </mask>
+                </defs>
+      
+                <!-- K outline (invisible, keeps the shape in the DOM) -->
+                <path
+                  d="M220.797 0H155.782C142.967 0 132.578 10.389 132.578 23.2033V79.688C132.578 85.5301 127.843 90.2662 122.001 90.2662C116.158 90.2662 111.422 85.5301 111.422 79.688V23.2033C111.422 10.389 101.033 0 88.2191 0H23.2033C10.389 0 0 10.389 0 23.2033V396.797C0 409.611 10.389 420 23.2033 420H88.2191C101.033 420 111.422 409.611 111.422 396.797V164.312C111.422 158.47 116.158 153.734 122.001 153.734C127.843 153.734 132.578 158.47 132.578 164.312V396.797C132.578 409.611 142.967 420 155.782 420H220.797C233.611 420 244 409.611 244 396.797V202.188C244 163.743 212.835 132.579 174.391 132.579H143.156C137.314 132.579 132.578 127.843 132.578 121.999C132.578 116.158 137.314 111.422 143.156 111.422H174.391C212.835 111.422 244 80.2566 244 41.8131V23.2033C244 10.389 233.611 0 220.797 0Z"
+                  fill="none"
+                />
+      
+                <!-- Background image masked in the K -->
+                <image
+                  class="bg"
+                  href="Airfryer_open.jpg"
+                  x="-96"
+                  y="-66"
+                  height="529"
+                  preserveAspectRatio="xMidYMid slice"
+                  mask="url(#svg-mask)"
+                />
+      
+                <!-- NEW: vrouw-copy masked inside the K -->
+                <!-- Tweak x / y / height to align to your comp -->
+
+              </svg>
+            </div>
+          </div>
+              <div class="magazines">
+               
+                
+                <img class="magazine3" src="sto.png" />
+                <img class="magazine2" src="mar.png" />
+                 <img class="magazine1" src="lib.png" />
+              </div>
+        <!-- <div class="airfryer">
+          <img class="airfryer-filled" src="airfryer.png" />
+          <img src="shadow-airfryer.png" class="shadow-airfryer" alt="">
+        </div> -->
+          <!-- Stacks above the SVG -->
+          <img src="vrouw1.png" alt="" class="vrouw A"/>
+          <img src="vrouw2.png" alt="" class="vrouw B"/>
+          <img src="airfryer_open_los.png" alt="" class="airfryer_open_los"/>
+          <div class="bolWrapper">
+            <div class="bol">
+              <div class="bolFace front">
+                <div>
+                  <span class="row row1">+</span>
+                  <span class="row row2">Philips</span>
+                  <span class="row row3">Airfryer</span>
+                  <span class="row row4">cadeau</span>
+                </div>
+                
+              </div>
+              <div class="bolFace back">
+                <div>
+                  <span class="row row1">t.w.v.</span>
+                  <span class="row row2">€ 149,99</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    <div class="copy">
+      <div class="row row1">Voor <span>snackers, bakkers</span></div>
+      <div class="row row2">en alles daartussenin</div>
+    </div>
+    <div class="bottom">
+      <img class="logo" src="logo.svg" />
+      <div class="cta">Bestel nu</div>
+    </div>
+
+    <!-- JavaScript bestanden -->
+    <script src="https://static.pexi.nl/general/gsap_3.9.1_min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

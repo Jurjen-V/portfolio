@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <script src="https://static.pexi.nl/general/jquery.min.js"></script>
+  <script src="https://static.pexi.nl/pexi.js"></script>
+
+  <link rel="stylesheet" href="all.css">
+  <link rel="stylesheet" href="left.css">
+</head>
+<body>
+  <div id="stage" class="hiddenOnload">
+	<div class="wallpaper"></div>
+	<div id="right" class="border"></div>
+    <div class="container top">
+     	<img src="copytop.svg" alt=""  class="copytop">
+		<div class="copyTopL">Klik op de puzzelstukjes om ze te<br>draaien tot ze perfect passen.</div>
+    </div>
+	<div class="clicklayer" onclick="PEXI.click()"></div>
+    <div class="container center">
+		<!-- <img src="top_copy_1.svg" alt="" class="copy"> -->
+		 <div class="copy">Klik op de puzzelstukjes om ze te<br>draaien tot ze perfect passen.</div>
+		<div class="clicklayer" onclick="PEXI.click()"></div>
+		<div class="strand">
+			<div class="clicklayer" onclick="PEXI.click()"></div>
+			<div class="puzzel">
+				<img src="cursor.png" alt="" class="cursor">
+				<div class="row1">
+					<img src="row1L.jpg" alt="" class="piece L">
+					<img src="row1M.jpg" alt="" class="piece M">
+					<img src="row1R.jpg" alt="" class="piece R">
+				</div>
+				<div class="row2">
+					<img src="row2L.jpg" alt="" class="piece L">
+					<img src="row2M.jpg" alt="" class="piece M">
+					<img src="row2R.jpg" alt="" class="piece R">
+				</div>
+				<div class="row3">
+					<img src="row3L.jpg" alt="" class="piece L">
+					<img src="row3M.jpg" alt="" class="piece M">
+					<img src="row3R.jpg" alt="" class="piece R">
+				</div>
+				<div class="row4">
+					<img src="row4L.jpg" alt="" class="piece L">
+					<img src="row4M.jpg" alt="" class="piece M">
+					<img src="row4R.jpg" alt="" class="piece R">
+				</div>
+				<div class="row5">
+					<img src="row5L.jpg" alt="" class="piece L">
+					<img src="row5M.jpg" alt="" class="piece M">
+					<img src="row5R.jpg" alt="" class="piece R">
+				</div>
+				<div class="row6">
+					<img src="row6L.jpg" alt="" class="piece L">
+					<img src="row6M.jpg" alt="" class="piece M">
+					<img src="row6R.jpg" alt="" class="piece R">
+				</div>
+			</div>
+		</div>
+		<img src="joch.png" alt="" class="joch">
+
+    </div>
+	
+    <div class="container bottom">
+		<div class="clicklayer" onclick="PEXI.click()"></div>
+      <div class="cta" onclick="PEXI.click()">
+		<div class="ctaCopy">Bestel snel</div>
+		<img src="arrow.svg" alt="" class="arrow">
+	  </div>
+
+    </div>
+  </div>
+
+
+
+  <script src="https://static.pexi.nl/general/gsap_3.9.1_min.js"></script>
+  <script src="https://static.pexi.nl/punktlich/punkScaling.js"></script>
+  <script src="left.js"></script>
+  <script src="scroll.js"></script>
+</body>
+
+</html>
