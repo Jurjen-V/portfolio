@@ -249,7 +249,7 @@
 
   // cta animatie
   function initLiquidCTA() {
-  document.querySelectorAll('.cta').forEach(btn => {
+  document.querySelectorAll('.cta, .pc-cta').forEach(btn => {
     const overlay = btn.querySelector('::before');
 
     btn.addEventListener('mouseenter', () => {

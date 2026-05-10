@@ -622,3 +622,269 @@ h1,h2,h3,h4,h5,h6 { font-weight: 700; line-height: 1.2; }
   position: relative;
   z-index: 1;
 }
+/* ── OUTER WRAPPER pins for N cards × 100vh each ── */
+.hs-outer{position:relative;}
+
+/* ── STICKY STAGE ── */
+/* Verwijder position: sticky en top: 0 */
+.hs-stage {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  /* GSAP voegt inline styles toe tijdens het pinnen, 
+     dus we houden deze class verder zo schoon mogelijk. */
+}
+
+/* ── TRACK: cards side by side, full viewport each ── */
+.hs-track{
+  display:flex;
+  width:100%;height:100%;
+  will-change:transform;
+}
+
+/* ── SINGLE CARD ── */
+.pc{
+  flex:0 0 100%;
+  height:100%;
+  display:flex;
+  position:relative;
+  overflow:hidden;
+}
+
+/* ── IMAGE HALF ── */
+.pc-img{
+  flex:0 0 50%;
+  position:relative;
+  overflow:hidden;
+}
+.pc-img img{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  transform:scale(1.1);
+  transition:transform .8s ease;
+}
+.pc:hover .pc-img img{transform:scale(1.04);}
+
+/* gradient fade toward text side */
+.pc-img::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  /* background:linear-gradient(90deg,rgba(11,13,10,.35) 0%,rgba(11,13,10,0) 55%); */
+}
+/* ── TEXT HALF ── */
+.pc-body{
+  flex:1;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:clamp(40px,7vw,100px) clamp(32px,5vw,80px);
+  gap:clamp(14px,2vh,24px);
+  position:relative;z-index:2;
+  background:var(--dark);
+}
+
+/* big ghost number */
+.pc-num{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(100px,14vw,180px);
+  font-weight:800;line-height:.85;
+  letter-spacing:-6px;
+  color:rgba(255,255,255,0.04);
+  position:absolute;
+  bottom:-20px;right:-10px;
+  user-select:none;pointer-events:none;
+  z-index:0;
+}
+.pc-inner{position:relative;z-index:1;display:flex;flex-direction:column;gap:clamp(12px,1.8vh,22px);}
+
+.pc-client{
+  font-size:11px;font-weight:700;
+  letter-spacing:3px;text-transform:uppercase;
+  color:var(--green);
+}
+.pc-title{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:clamp(36px,5vw,72px);
+  line-height:.95;letter-spacing:-2.5px;color:#f2f0eb;
+}
+.pc-desc{
+  font-size:clamp(13px,1.1vw,15px);
+  color:rgba(255,255,255,0.42);
+  line-height:1.7;
+  max-width:380px;
+}
+.pc-tags{display:flex;flex-wrap:wrap;gap:6px;}
+.tag{
+  font-size:10px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;
+  padding:5px 12px;border-radius:999px;
+  border:0.5px solid rgba(255,255,255,0.12);
+  color:rgba(255,255,255,0.45);background:rgba(255,255,255,0.03);
+}
+.pc-cta{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'Syne',sans-serif;font-size:13px;font-weight:800;
+  letter-spacing:1px;text-transform:uppercase;
+  color:var(--dark);background:var(--green);
+  padding:13px 26px;border-radius:999px;
+  border:none;cursor:pointer;text-decoration:none;
+  width:fit-content;margin-top:4px;
+  transition:background .2s,transform .2s;
+}
+.pc-cta:hover{background:#fff;transform:translateX(6px);}
+.pc-cta .arr{display:inline-block;transition:transform .2s;}
+.pc-cta:hover .arr{transform:translateX(4px);}
+
+/* ── BROWSER HOVER PREVIEW ── */
+.pc-preview{
+  position:absolute;inset:20px;
+  background:#111;border-radius:12px;overflow:hidden;
+  /* box-shadow:0 16px 60px rgba(0,0,0,.8); */
+  opacity:1;transform:scale(.94) translateY(10px);
+  transition:opacity .35s ease,transform .35s ease;
+  pointer-events:none;z-index:10;
+  display:flex;flex-direction:column;
+  height:80%;
+  margin: auto;
+}
+.pc:hover .pc-preview{opacity:1;transform:scale(1) translateY(0);pointer-events:auto;}
+.prev-bar{
+  height:28px;background:#1c1c1c;flex-shrink:0;
+  display:flex;align-items:center;padding:0 10px;gap:5px;
+  border-bottom:1px solid rgba(255,255,255,0.05);
+}
+.prev-dot{width:8px;height:8px;border-radius:50%;}
+.prev-r{background:#ff5f57}.prev-y{background:#febc2e}.prev-g{background:#28c840}
+.prev-url{
+  flex:1;height:15px;background:rgba(255,255,255,0.05);border-radius:3px;
+  margin:0 8px;font-size:9px;color:rgba(255,255,255,0.18);
+  display:flex;align-items:center;padding:0 6px;
+}
+.prev-img{flex:1;overflow:hidden;}
+.prev-img img{width:100%;height:100%;object-fit:cover;display:block;}
+
+/* ── BROWSER MOCKUP BADGE on image ── */
+.pc-badge{
+  position:absolute;bottom:24px;
+  left:20px;
+  font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:rgba(255,255,255,0.22);
+  display:flex;align-items:center;gap:8px;
+  z-index:5;
+}
+.pc-badge::before{content:'';display:block;width:18px;height:1px;background:rgba(255,255,255,0.18);}
+
+/* accent line */
+.pc-accent{
+  width:36px;height:3px;background:var(--green);border-radius:2px;
+}
+
+/* ── PROGRESS BAR ── */
+.hs-prog{
+  position:fixed;right:28px;top:50%;transform:translateY(-50%);
+  display:flex;flex-direction:column;gap:10px;z-index:300;
+}
+.pd{
+  width:3px;height:24px;border-radius:2px;
+  background:rgba(255,255,255,0.12);
+  transition:height .35s,background .35s;
+  cursor:pointer;
+}
+.pd.on{height:48px;background:var(--green);}
+
+/* ── SCROLL HINT ── */
+.hs-hint{
+  position:fixed;bottom:32px;left:50%;transform:translateX(-50%);
+  font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+  color:rgba(255,255,255,0.2);
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+  z-index:300;transition:opacity .5s;
+}
+.hs-hint.gone{opacity:0;pointer-events:none;}
+.hint-arrow{width:1.5px;height:36px;background:rgba(255,255,255,0.15);position:relative;overflow:hidden;}
+.hint-arrow::after{
+  content:'';position:absolute;top:-100%;left:0;
+  width:100%;height:100%;background:var(--green);
+  animation:drop 1.4s ease-in-out infinite;
+}
+@keyframes drop{0%{top:-100%}100%{top:100%}}
+
+/* ── COUNTER ── */
+.hs-counter{
+  position:fixed;bottom:32px;right:36px;
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:13px;letter-spacing:1px;
+  color:rgba(255,255,255,0.2);z-index:300;
+}
+.hs-counter .cur-n{color:#f2f0eb;}
+
+/* cursor dot */
+.cur-dot{
+  position:fixed;width:38px;height:38px;border-radius:50%;
+  border:1.5px solid var(--green);pointer-events:none;z-index:9999;
+  transform:translate(-50%,-50%);opacity:0;transition:opacity .3s,width .2s,height .2s;
+}
+
+/* ── AFTER ── */
+.after-scroll{padding:100px clamp(20px,6vw,80px) 80px;}
+.after-scroll h3{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(22px,3vw,38px);letter-spacing:-1px;color:#f2f0eb;margin-bottom:4px;}
+.after-meta{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:28px;}
+.ai-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;}
+.ai-card{background:#111;border:0.5px solid rgba(255,255,255,0.07);border-radius:16px;overflow:hidden;text-decoration:none;transition:border-color .3s,transform .3s;display:block;}
+.ai-card:hover{border-color:var(--green);transform:translateY(-5px);}
+.ai-card img{width:100%;height:180px;object-fit:cover;display:block;background:#0a0a0a;}
+.ai-bd{padding:20px;}
+.ai-meta{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:8px;}
+.ai-card h4{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:#f2f0eb;margin-bottom:8px;line-height:1.2;}
+.ai-card p{font-size:13px;color:rgba(255,255,255,0.4);line-height:1.6;margin-bottom:14px;}
+.divider{height:1px;background:rgba(255,255,255,0.05);margin:0 clamp(20px,5vw,72px);}
+video{
+    width:70%;height:90%;object-fit:contain;display:block;margin: auto;
+}
+.skin{
+    width: 100%;
+}
+@media (max-width: 900px) {
+  .pc {
+    flex-direction: column; /* Stapel de video en tekst op mobiel */
+  }
+  
+  .pc-img {
+    flex: 0 0 45vh; /* Geef de media een vaste hoogte in viewport units */
+    width: 100%;
+  }
+  .pc-title{
+    font-size: clamp(28px, 5vw, 48px); /* Pas de titelgrootte aan voor kleinere schermen */
+  }
+  .pc-body {
+    flex: 1;
+    padding: 32px 24px; /* Ruimte besparen op kleine schermen */
+    justify-content: flex-start;
+  }
+  
+  .pc-num {
+    font-size: 100px; /* Maak de background-nummers iets subtieler */
+    bottom: -5px;
+    right: 5px;
+  }
+  .pc-cta{
+    font-size:10px
+  }
+}
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--dark); /* Gebruik je eigen variabele */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease-out;
+  font-size: 5vw;
+}
+
+.loader-content {
+  text-align: center;
+  color: var(--green);
+  font-family: 'Syne', sans-serif; font-weight: 800;
+}
