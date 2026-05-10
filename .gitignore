@@ -7,3 +7,10 @@
 !.dev.vars.example
 .env*
 !.env.example
+.test*
+test/autotrack.webm
+test/donaldduck.webm
+test/index.html
+test/joe.webm
+test/kiosk.webm
+test/videoland.webm

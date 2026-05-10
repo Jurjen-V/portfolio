@@ -51,13 +51,13 @@
     // Hero content
     tl
       .fromTo(".hero-image",1, { opacity: 0, y: 100, scaleY:5, transformOrigin:"top" },{ opacity: 1, y: 0,scaleY:1, stagger: 0.2 , ease:"power2.out"},"<.2" )
-      .from(heroH1.chars, {duration: 1, ease:"power2.out", scaleY: 10, y:100, transformOrigin:"top",  autoAlpha: 0,  stagger: 0.02,},"<.2")
-      .from(heroP.words, {duration: 1, scaleY: 1, y:400, transformOrigin:"top",  autoAlpha: 0,  stagger: 0.02,},"<.2")
-      .from("#heroHome .meta", {duration: 1, scaleY: 1, y:400, transformOrigin:"top",  autoAlpha: 0,  stagger: 0.02,},"<.2")
-
+      .from(heroH1.chars, {duration: .5, ease:"power2.out", scaleY: 10, y:50, transformOrigin:"top",  autoAlpha: 0,  stagger: 0.02,},"<.2")
+      .from(heroP.words, {duration: .5, scaleY: 1, y:50, transformOrigin:"top",  autoAlpha: 0,  stagger: 0.02,},"<.2")
+      .from("#heroHome .meta", {duration: .5, scaleY: 1, y:50, transformOrigin:"top",  autoAlpha: 0,  stagger: 0.02,},"<.2")
+      .from("#heroHome .skills", {duration: .5, scaleY: 1, y:50, transformOrigin:"top",  autoAlpha: 0,  stagger: 0.02,},"<")
       // .fromTo( ".hero p, .hero .meta", { opacity: 0, scaleY:2, y: 400}, { opacity: 1, scaleY:1, y: 0, duration: 1, stagger: 0.2 , ease:"power2.out" }, "<1")
       // .to('.hero h1',.5,{scaleY:1 ,y:0, lineHeight:1, transformOrigin:'top', ease:"power2.out"},'<.05')
-      .fromTo( ".hero .cta",{ opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.5,ease:"power2.out" },"<.8")
+      .fromTo( ".hero .cta",{ opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.5,ease:"power2.out" },"<.2")
       .to(".hero .cta", { scale: 1.2, duration: 0.3, ease:"power2.out" })
       .to(".hero .cta", { scale: 1, duration: 0.3, ease:"power2.out"});
     return tl;

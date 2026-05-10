@@ -134,18 +134,25 @@ h1,h2,h3,h4,h5,h6 { font-weight: 700; line-height: 1.2; }
   letter-spacing: -2px;
   color: #0b0d0a;
   margin-bottom: 20px;
+  overflow: hidden;
 }
 #heroHome h1 em { font-style: normal; color: #fff; }
-#heroHome p { font-size: 16px; color: rgba(0,0,0,0.65); max-width: 420px; margin-bottom: 12px; }
+#heroHome p { font-size: 16px; color: rgba(0,0,0,0.65); max-width: 420px; margin-bottom: 12px; overflow: hidden; }
 #heroHome .meta {
   font-size: 15px; color: rgba(0,0,0,0.55); background: rgba(0,0,0,0.08);
   border: none; border-radius: var(--radius-pill); padding: 8px 18px;
   display: inline-block; margin-bottom: 28px;
+  overflow: hidden;
+}
+#heroHome .skills .meta{
+  margin-bottom: 0;
+  overflow: hidden;
 }
 #heroHome .cta {
   background: #0b0d0a; color: var(--green); padding: 14px 28px;
   border-radius: var(--radius-pill); font-weight: 700; font-size: 15px;
   display: inline-block; transition: .2s; border: none;
+  overflow: hidden;
 }
 #heroHome .cta:hover { background: #fff; color: #0b0d0a; transform: translateY(-2px); }
 #heroHome .hero-image { display: flex; justify-content: center; align-items: center; }
