@@ -18,8 +18,8 @@ function buildScroll() {
     ease: 'none',
     scrollTrigger: {
       trigger: stage,
-      start: 'top top',
-      end: () => '+=' + (track.scrollWidth - window.innerWidth),
+      start: () => `top top`,
+      end: () => '+=' + ((track.scrollWidth + window.innerWidth * 0.5) - window.innerWidth),
       pin: true,
       scrub: 1.5, // 1 is soepeler en responsiever dan 2.5
       invalidateOnRefresh: true, // Herbereken breedtes bij scherm rotatie/resize
@@ -65,43 +65,28 @@ gsap.from('.pc:first-child .pc-title',{y:50,opacity:0,duration:.9,ease:'power3.o
 gsap.from('.pc:first-child .pc-desc',{y:30,opacity:0,duration:.7,delay:.7});
 gsap.from('.pc:first-child .pc-tags',{y:20,opacity:0,duration:.6,delay:.9});
 gsap.from('.pc:first-child .pc-cta',{scale:.85,opacity:0,duration:.5,ease:'back.out(2)',delay:1.0});
-const videos = document.querySelectorAll('.video');
+const videos = document.querySelectorAll('.pc');
 
 videos.forEach(video => {
+    const videoElement = video.querySelector('video');
     // 1. Zorg dat de video op het laatste frame staat bij laden
-    video.addEventListener('loadedmetadata', () => {
-        video.currentTime = video.duration;
-        video.pause();
+    videoElement.addEventListener('loadedmetadata', () => {
+        videoElement.currentTime = videoElement.duration;
+        videoElement.pause();
     });
 
     // 2. Desktop: Hover functionaliteit
     // We gebruiken 'matchMedia' om te checken of de gebruiker een muis heeft
     const isDesktop = window.matchMedia("(hover: hover)").matches;
-
     if (isDesktop) {
         video.addEventListener('mouseenter', () => {
-            video.currentTime = 0;
-            video.play();
+            videoElement.currentTime = 0;
+            videoElement.play();
         });
 
         video.addEventListener('mouseleave', () => {
-            video.pause();
-            video.currentTime = video.duration;
+            videoElement.pause();
+            videoElement.currentTime = videoElement.duration;
         });
     }
-
-    // 3. Mobiel & Desktop: Klik functionaliteit
-    // Op desktop is dit een extra 'trigger', op mobiel is dit de hoofd-interactie
-    video.addEventListener('click', (e) => {
-        // Voorkom dat de klik ook andere acties (zoals een link openen) direct triggert
-        e.stopPropagation();
-
-        if (video.paused || video.ended) {
-            video.currentTime = 0;
-            video.play();
-        } else {
-            video.pause();
-            video.currentTime = video.duration;
-        }
-    });
 });

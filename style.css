@@ -888,3 +888,15 @@ video{
   color: var(--green);
   font-family: 'Syne', sans-serif; font-weight: 800;
 }
+
+.mobiel{
+  display: none;
+}
+@media (max-width:768px) {
+  .desktop{
+    display: none;
+  }
+  .mobiel{
+    display: block;
+  }
+}
