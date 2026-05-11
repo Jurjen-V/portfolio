@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /werk
+Disallow: /porject
+Sitemap: https://jurjenveenstra.com/sitemap.xml
