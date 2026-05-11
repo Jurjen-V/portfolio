@@ -3,6 +3,7 @@
 
   const { gsap, ScrollTrigger } = window;
   gsap.registerPlugin(ScrollTrigger);
+  // ScrollTrigger.normalizeScroll(true);
   gsap.registerPlugin(SplitText)
 
   // ==============================
@@ -69,25 +70,47 @@
 
   function animateSection(selector, trigger) {
     if (!q(selector)) return;
-    if(selector === '.section3, .ch-werk-bottom') {
-      gsap.from(selector, {scrollTrigger: {trigger,start: "top 45%",toggleActions: "play none none none" },y: 100,opacity: 0,duration: 0.7, ease: "power2.out"}); 
-    } else {
-      gsap.from(selector, {scrollTrigger: {trigger,start: "top 45%",toggleActions: "play none none none" },y: 100,opacity: 0, stagger: 0.5,duration: 0.7, ease: "power2.out"});  }
+    
+    // Exclusief voor section met proj-grid: animeer alleen heading en meta, NIET de cards
+    if(selector === '.section1') {
+      gsap.from('.section1 > .container > h2, .section1 > .container > .meta, .section1 > .container > h3', {
+        scrollTrigger: {trigger, start:"top 85%", toggleActions: "play none none none" }, 
+        immediateRender: false,
+        y: 50,
+        opacity: 0,
+        stagger: 0.15,
+        duration: 0.7, 
+        ease: "power2.out"
+      });
+      return; // Stop hier, laat proj-cards hun eigen animatie doen
     }
+    
+    if(selector === '.section3, .ch-werk-bottom') {
+      gsap.from(selector, {scrollTrigger: {trigger, start:"top 85%",toggleActions: "play none none none" }, immediateRender: false  ,y: 100,opacity: 0,duration: 0.7, ease: "power2.out"}); 
+    } else {
+      gsap.from(selector, {scrollTrigger: {trigger, start: "top 85%",toggleActions: "play none none none" }, immediateRender: false ,y: 100,opacity: 0, stagger: 0.5,duration: 0.7, ease: "power2.out"});  
+    }
+  }
 
   function initSections() {
     const sections = [
       { selector: '.section1', trigger: '#projecten' },
       { selector: '.section2', trigger: '#AI' },
-      { selector: '.section3, .ch-werk-bottom', trigger: '#about' },
+      { selector: '.section3', trigger: '#about' },
     ];
     sections.forEach(s => animateSection(s.selector, s.trigger));
 
     // ── PROJECT CARDS stagger entrance ──
     if(q('.proj-grid')) {
+      const firstCard = q('.proj-card');
       gsap.from('.proj-card', {
-        scrollTrigger: { trigger: '.proj-grid', start: 'top 75%' },
-        y: 0,
+        scrollTrigger: { 
+          trigger: firstCard,
+          start: 'top 90%',
+          toggleActions: 'play none none none'
+        },
+        immediateRender: false,
+        y: 50,
         opacity: 0,
         duration: 1.5,
         stagger: { amount: 0.8, from: 'start' },
@@ -99,6 +122,7 @@
     if(q('#about')) {
       gsap.from('.timeline-group', {
         scrollTrigger: { trigger: '.timeline', start: 'top 85%' },
+        immediateRender: false,
         x: -30,
         opacity: 0,
         duration: 0.5,
@@ -213,6 +237,7 @@
   // ==============================
 
   function initAnimations() {
+    gsap.set('.hiddenOnLoad', { opacity: 1 });
     const isMobile = window.innerWidth <= 768;
     const isHomePage = !!q('#heroHome');
 
@@ -237,8 +262,10 @@
   // EVENTS
   // ==============================
 
-  document.addEventListener('DOMContentLoaded', initAnimations);
-
+  window.addEventListener('load', () => {
+    initAnimations();
+    ScrollTrigger.refresh();
+  });
   window.addEventListener(
     'resize',
     debounce(() => {
@@ -309,4 +336,7 @@
   });
 }
  initLiquidCTA()
+ window.addEventListener('load', () => {
+  ScrollTrigger.refresh(true);
+});
 })();
