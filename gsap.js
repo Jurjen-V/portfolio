@@ -1,3 +1,9 @@
+// Bovenaan in je JS bestand
+ScrollTrigger.normalizeScroll(true); 
+
+window.addEventListener("load", () => {
+  ScrollTrigger.refresh();
+});
 (function () {
   if (!window.gsap) return;
 
