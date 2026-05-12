@@ -1,8 +1,4 @@
 (function () {
-  // Voorkom verspringen bij scrollen op mobiel (adresbalk fix)
-  ScrollTrigger.config({ 
-    ignoreMobileResize: true 
-  });
   if (!window.gsap) return;
 
   const { gsap, ScrollTrigger } = window;
@@ -10,6 +6,7 @@
   // ScrollTrigger.normalizeScroll(true);
   gsap.registerPlugin(SplitText)
 
+  
   // ==============================
   // Utils
   // ==============================
@@ -154,7 +151,7 @@
       const timelineGroups = gsap.utils.toArray('.timeline-group');
       const tl = gsap.timeline({
           scrollTrigger: {
-            trigger: timeline,
+            trigger: timelineGroups,
             start: 'top 80%',
             toggleActions: 'play none none none',
             once: true
