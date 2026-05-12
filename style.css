@@ -359,6 +359,8 @@ h1,h2,h3,h4,h5,h6 { font-weight: 700; line-height: 1.2; }
 }
 /* De grid opnieuw instellen voor 3-koloms onderste rij */
 .proj-grid {
+  overflow-x: hidden;
+  width: 100%;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas:         "featured card2 card3"        "card4 card5 card6";
 }
@@ -377,6 +379,8 @@ h1,h2,h3,h4,h5,h6 { font-weight: 700; line-height: 1.2; }
   flex-direction: column;
   transition: transform .25s, box-shadow .25s;
   cursor: pointer;
+  will-change: transform, opacity;
+  -webkit-backface-visibility: hidden;
 }
 .proj-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,.6); }
 

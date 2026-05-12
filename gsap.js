@@ -1,3 +1,8 @@
+ScrollTrigger.normalizeScroll(true); 
+
+window.addEventListener("load", () => {
+  ScrollTrigger.refresh();
+});
 (function () {
   if (!window.gsap) return;
 
