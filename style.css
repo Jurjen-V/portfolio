@@ -900,3 +900,14 @@ video{
     display: block;
   }
 }
+.section1,
+.proj-grid,
+.proj-card,
+.container,
+.seciton3,
+#about,
+.timeline-group,
+.timeline,.timeline-role {
+  overflow: visible !important;
+  /* transform: none !important; */
+}

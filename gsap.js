@@ -68,67 +68,107 @@
   // SCROLL ANIMATIONS
   // ==============================
 
-  function animateSection(selector, trigger) {
-    if (!q(selector)) return;
+  // function animateSection(selector, trigger) {
+  //   if (!q(selector)) return;
     
-    // Exclusief voor section met proj-grid: animeer alleen heading en meta, NIET de cards
-    if(selector === '.section1') {
-      gsap.from('.section1 > .container > h2, .section1 > .container > .meta, .section1 > .container > h3', {
-        scrollTrigger: {trigger, start:"top 85%", toggleActions: "play none none none" }, 
-        immediateRender: false,
-        y: 50,
-        opacity: 0,
-        stagger: 0.15,
-        duration: 0.7, 
-        ease: "power2.out"
-      });
-      return; // Stop hier, laat proj-cards hun eigen animatie doen
-    }
     
-    if(selector === '.section3, .ch-werk-bottom') {
-      gsap.from(selector, {scrollTrigger: {trigger, start:"top 85%",toggleActions: "play none none none" }, immediateRender: false  ,y: 100,opacity: 0,duration: 0.7, ease: "power2.out"}); 
-    } else {
-      gsap.from(selector, {scrollTrigger: {trigger, start: "top 85%",toggleActions: "play none none none" }, immediateRender: false ,y: 100,opacity: 0, stagger: 0.5,duration: 0.7, ease: "power2.out"});  
-    }
-  }
+  //   if(selector === '.section3, .ch-werk-bottom') {
+  //     // gsap.from(selector, {scrollTrigger: {trigger, start:"top 85%",toggleActions: "play none none none" }, immediateRender: false  ,y: 100,opacity: 0,duration: 0.7, ease: "power2.out"}); 
+  //   }
+  // }
 
   function initSections() {
-    const sections = [
-      { selector: '.section1', trigger: '#projecten' },
-      { selector: '.section2', trigger: '#AI' },
-      { selector: '.section3', trigger: '#about' },
-    ];
-    sections.forEach(s => animateSection(s.selector, s.trigger));
+    // const sections = [
+    //   { selector: '.section1', trigger: '#projecten' },
+    //   { selector: '.section2', trigger: '#AI' },
+    //   { selector: '.section3', trigger: '#about' },
+    // ];
+    // sections.forEach(s => animateSection(s.selector, s.trigger));
 
     // ── PROJECT CARDS stagger entrance ──
-    if(q('.proj-grid')) {
-      const firstCard = q('.proj-card');
-      gsap.from('.proj-card', {
-        scrollTrigger: { 
-          trigger: firstCard,
-          start: 'top 90%',
-          toggleActions: 'play none none none'
-        },
-        immediateRender: false,
-        y: 50,
-        opacity: 0,
-        duration: 1.5,
-        stagger: { amount: 0.8, from: 'start' },
-        ease: 'power3.out'
+    if (q('.proj-grid')) {
+      const cards = gsap.utils.toArray('.proj-card');
+
+      cards.forEach((card, index) => {
+        // 1. Bepaal de richting op basis van index (even = links, oneven = rechts)
+        const isEven = index % 2 === 0;
+        const xOffset = isEven ? -100 : 100;
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+            once: true
+          }
+        });
+
+        // 2. Kaart animatie (slide in)
+        tl.fromTo(card, {
+          x: xOffset,
+          opacity: 0,
+          duration: 1,
+          ease: 'power3.out'
+        },{
+          x: 0,
+          opacity: 1,
+          duration: 1,
+          ease: 'power3.out'
+        });
+
+        // 3. Tekst animatie met SplitText (binnen de huidige kaart)
+        // We zoeken naar de h3 of h2 binnen de specifieke 'card'
+        const cardTitle = card.querySelector('h4');
+        const cardDescription = card.querySelector('p');
+        
+        if (cardTitle) {
+          const split = new SplitText(cardTitle, { type: "words, chars" });
+          const splitDescription = new SplitText(cardDescription, { type: "words, chars" });
+          tl.from(split.words, {
+            duration: 0.5,
+            ease: "power2.out",
+            scaleY: 1.2,
+            y: 10,
+            transformOrigin: "top",
+            autoAlpha: 0,
+            stagger: 0.02
+          }, "-=0.6"); 
+          tl.from(splitDescription.words, {
+            duration: 0.5,
+            ease: "power2.out",
+            scaleY: 1.2,
+            y: 10,
+            transformOrigin: "top",
+            autoAlpha: 0,
+            stagger: 0.02
+          }, "-=0.6"); 
+        }
       });
     }
-
     // ── ABOUT section items ──
     if(q('#about')) {
-      gsap.from('.timeline-group', {
-        scrollTrigger: { trigger: '.timeline', start: 'top 85%' },
-        immediateRender: false,
-        x: -30,
-        opacity: 0,
-        duration: 0.5,
-        stagger: 0.1,
-        ease: 'power2.out'
-      });
+      const timelineGroups = gsap.utils.toArray('.timeline-group');
+      const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: timeline,
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+            once: true
+          }
+        });
+
+        // 2. Kaart animatie (slide in)
+        tl.fromTo(timelineGroups, {
+          x:100,
+          opacity: 0,
+          duration: 1,
+          ease: 'power3.out'
+        },{
+          x: 0,
+          opacity: 1,
+          duration: 1,
+          ease: 'power3.out'
+        });
     }
 
     // ── WERK.HTML hero ──
