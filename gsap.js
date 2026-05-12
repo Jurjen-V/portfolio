@@ -1,4 +1,8 @@
 (function () {
+  // Voorkom verspringen bij scrollen op mobiel (adresbalk fix)
+  ScrollTrigger.config({ 
+    ignoreMobileResize: true 
+  });
   if (!window.gsap) return;
 
   const { gsap, ScrollTrigger } = window;
