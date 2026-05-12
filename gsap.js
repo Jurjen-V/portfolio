@@ -1,8 +1,3 @@
-ScrollTrigger.normalizeScroll(true); 
-
-window.addEventListener("load", () => {
-  ScrollTrigger.refresh();
-});
 (function () {
   if (!window.gsap) return;
 
@@ -227,10 +222,11 @@ window.addEventListener("load", () => {
   // BRANDS PARALLAX
   // ==============================
 
-  function initBrands() {
-    if (!q('.brands-track')) return;
-    gsap.to('.brands-track', {xPercent: -18,ease: 'none', scrollTrigger: {trigger: '.brands', start: 'top bottom', end: 'bottom top',scrub: 0.7}});
-  }
+  // function initBrands() {
+  //   console.log('.brands', q('.brands'));
+  //   if (!q('.brands')) return;
+  //   gsap.to('.brand-item', {xPercent: -18,ease: 'none', scrollTrigger: {trigger: '.brands', start: 'top bottom', end: 'bottom top',scrub: 0.7}});
+  // }
 
   // ==============================
   // METRICS COUNTER
@@ -298,7 +294,7 @@ window.addEventListener("load", () => {
     }
 
     initSections();
-    initBrands();
+    // initBrands();
     initMetrics();
     initImageReveal();
     initBadges();
