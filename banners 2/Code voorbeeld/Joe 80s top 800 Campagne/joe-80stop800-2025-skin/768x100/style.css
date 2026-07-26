@@ -1,0 +1,781 @@
+/* Fonts */
+@font-face {
+	font-family: 'geomanist';
+	font-style: normal;
+	font-weight: 300;
+	src: url('geomanist-book-webfont.woff2') format('woff2'), url('geomanist-book-webfont.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'geomanist';
+	font-style: normal;
+	font-weight: 500;
+	src: url('geomanist-medium-webfont.woff2') format('woff2'), url('geomanist-medium-webfont.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'geomanist';
+	font-style: normal;
+	font-weight: 700;
+	src: url('geomanist-bold.woff') format('woff2'), url('geomanist-bold.woff') format('woff');
+}
+
+
+
+/* Reset */
+
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	outline: none;
+	text-rendering: optimizeLegibility !important;
+	-webkit-font-smoothing: antialiased !important;
+}
+
+body {
+	background: none;
+}
+
+.ring{
+	position: absolute;
+	width: 830px;
+	height: 830px;
+	left: -31px;
+	top: -209px;
+}
+#stage {
+	width: 768px;
+	height: 100px;
+	position: absolute;
+	cursor: pointer;
+	overflow: hidden;
+	
+	background: #1E64C8;
+	position: relative;
+	display: block;
+	font-family: 'geomanist';
+	  font-style: normal;
+	  color: #FFF;
+}
+
+.hiddenOnload {
+	opacity:0;
+}
+
+.logo {
+	position: absolute;
+	top: 14px;
+	left: 488px;
+	height: 71px;
+}
+.songsoverflow {
+	opacity:1;
+  }
+  
+  .player {
+	opacity:0;
+  }
+  
+  .songsNotAvailable .songsoverflow {
+	opacity:0;
+  }
+  
+  .songsNotAvailable .player {
+	opacity:1;
+  }
+/* .circle {
+	position: absolute;
+	border-radius: 50%;
+	overflow: hidden;
+} */
+.circle1 {
+	width: 3354px;
+	height: 3354px;
+	top:50%;
+	left:50%;
+	transform:translate(-50%, -50%);
+	background-color: #14328C;
+	opacity:.25
+}
+
+.circle2 {
+	width: 2532px;
+	height: 2532px;
+	top:50%;
+	left:50%;
+	transform:translate(-50%, -50%);
+	background-color: #14328C;
+	opacity: .50
+}
+
+.circle3 {
+	width: 1712px;
+	height: 1712px;
+	top:50%;
+	left:50%;
+	transform:translate(-50%, -50%);
+	background-color: #14328C;
+	opacity: .75
+}
+
+.circle4 {
+	width: 890px;
+	height: 890px;
+	top:50%;
+	left:50%;
+	transform:translate(-50%, -50%);
+	background-color: #1E64C8;
+}
+
+.player {
+	position: absolute;
+    top: 50%;
+    height: 66px;
+    width: 453px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .cover {
+	  position: absolute;
+	  width: 66px;
+	  height: 100%;
+	  top: 0;
+	  left: 0;
+	  background-image: url('cover.jpg');
+	  background-position: center;
+	  background-size: cover;
+	  background-repeat: no-repeat;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  border-radius: 4px;
+  }
+  
+  .covergradient {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  width: 100%;
+	  height: 100%;
+	  background-color: rgba(0,0,0,.2);
+  }
+  
+  .play {
+	  width: 22px;
+  }
+  
+  .pause {
+	  width: 22px;
+	  display: none;
+  }
+  
+  .playerCopy {
+    position: absolute;
+    top: 5px;
+    width: calc(100% - 66px);
+    left: 66px;
+    height: 100%;
+    padding-left: 10px;
+	line-height: 30px;
+  }
+  
+  .copyoverflow {
+	  overflow: hidden;
+	  width: 358px;
+  }
+  .artistoverflow {
+	overflow: hidden;
+	width: 159px;
+}
+  
+  .title {
+	  font-weight: 500;
+	  font-size: 30px;
+	  white-space: nowrap;
+	  width: fit-content;
+	  transition: transform 3s linear;
+  }
+  
+  .artist {
+	  font-weight: 300;
+	  font-size: 22px;
+	  white-space: nowrap;
+	  width: fit-content;
+	  transition: transform 8s linear;
+  }
+  
+  .rangeContainer {
+	margin-top: 5px;
+    position: relative;
+    height: 18px;
+    display: flex;
+    top: -28px;
+    left: 183px;
+    width: 170px;
+  }
+  
+  .sound {
+	  width: 18px;
+	  height: 18px;
+	  display: flex;
+	  align-items: center;
+  }
+  
+  .soundOn {
+	  display: block;
+	  width: 18px;
+  }
+  
+  .soundOff {
+	  display: none;
+	  width: 8px;
+  }
+  
+  .soundVolume {
+	  margin-left: 7px;
+	  width: calc(100% - 25px);
+	  height: 18px;
+	  background: rgba(0, 0, 0, 0);
+	  -webkit-appearance: none;
+  }
+  
+  .soundVolume::-webkit-slider-thumb {
+	  -webkit-appearance: none;
+  }
+  
+  .soundVolume:focus {
+	  outline: none;
+	  /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+  }
+  
+  .soundVolume::-ms-track {
+	  width: 100%;
+	  cursor: pointer;
+	  /* Hides the slider so custom styles can be added */
+	  background: rgba(0, 0, 0, 0);
+	  border-color: rgba(0, 0, 0, 0);
+	  color: rgba(0, 0, 0, 0);
+  }
+  
+  /* Special styling for WebKit/Blink */
+  .soundVolume::-webkit-slider-thumb {
+	  -webkit-appearance: none;
+	  height: 8px;
+	  width: 8px;
+	  border-radius: 999px;
+	  background: #ffffff;
+	  cursor: pointer;
+	  margin-top: -2px;
+	  /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  }
+  
+  /* All the same stuff for Firefox */
+  .soundVolume::-moz-range-thumb {
+	  height: 8px;
+	  width: 8px;
+	  border-radius: 999px;
+	  background: #ffffff;
+	  cursor: pointer;
+  }
+  
+  .soundVolume::-webkit-slider-runnable-track {
+	  width: 100%;
+	  height: 3px;
+	  cursor: pointer;
+	  background: rgba(255,255,255,.5);
+	  border-radius: 999px;
+  }
+  
+  .soundVolume::-moz-range-track {
+	  width: 100%;
+	  height: 3px;
+	  cursor: pointer;
+	  background: rgba(255,255,255,.5);
+	  border-radius: 999px;
+  }
+  
+  .bollen {
+    position: absolute;
+    left: 381px;
+    transform: scale(.7);
+    top: 43px;
+  }
+
+  .marquee {
+	-moz-transform: translateX(0%);
+	-webkit-transform: translateX(0%);
+	transform: translateX(0%);
+	-moz-animation: scroll-left 5s linear;
+	-webkit-animation: scroll-left 5s linear;
+	animation: scroll-left 5s linear;
+}
+
+@-moz-keyframes scroll-left {
+	0% {
+		-moz-transform: translateX(0%);
+	}
+	100% {
+		-moz-transform: translateX(-50%);
+	}
+}
+
+@-webkit-keyframes scroll-left {
+	0% {
+		-webkit-transform: translateX(0%);
+	}
+	100% {
+		-webkit-transform: translateX(-50%);
+	}
+}
+
+@keyframes scroll-left {
+	0% {
+		-moz-transform: translateX(0%);
+		-webkit-transform: translateX(0%);
+		transform: translateX(0%);
+	}
+	100% {
+		-moz-transform: translateX(-50%);
+		-webkit-transform: translateX(-50%);
+		transform: translateX(-50%);
+	}
+}
+
+.soundWave {
+	display: flex;
+    top: 38px;
+    left: 183px;
+    width: 170px;
+    position: absolute;
+    z-index: 3;
+}
+
+.box {
+    position: relative;
+    width: 3px;
+    height: 15px;
+    margin-left: 3.5px;
+    border-radius: 8px;
+    animation-duration: 1.2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 23.8;
+    animation-fill-mode: forwards;
+    background-color: #FFF;
+}
+
+@keyframes quiet {
+	25%{
+	  transform: scaleY(.5);
+	}
+	50%{
+	  transform: scaleY(.2);
+	}
+	75%{
+	  transform: scaleY(.8);
+	}
+  }
+  
+  @keyframes normal {
+	25%{
+	  transform: scaleY(1);
+	}
+	50%{
+	  transform: scaleY(.4);
+	}
+	75%{
+	  transform: scaleY(.6);
+	}
+  }
+
+  @keyframes okay {
+	14%{
+		transform: scaleY(.8);
+	  }
+	  46%{
+		transform: scaleY(.2);
+	  }
+	  90%{
+		transform: scaleY(1.7)
+	  }
+  	}
+
+  @keyframes loud {
+	25%{
+	  transform: scaleY(1);
+	}
+	50%{
+	  transform: scaleY(.4);
+	}
+	75%{
+	  transform: scaleY(1.2);
+	}
+  } 
+
+  @keyframes nogeen {
+	8%{
+		transform: scaleY(.2);
+	  }
+	  60%{
+		transform: scaleY(.8);
+	  }
+	  80%{
+		transform: scaleY(1);
+	  }
+  }
+;
+
+
+  .box1, .box27, .box11{
+	animation-name: quiet;
+	animation-delay: .2s;
+  }
+  
+  .box2, .box23, .box25{
+	animation-name: normal;
+  }
+  
+  .box3, .box18, .box8, .box27{
+	animation-name: loud;
+	animation-delay: .1s;
+  }
+  
+  .box4, .box10, .box16, .box20{
+	animation-name: okay;
+  }
+  
+  .box5, .box12, .box21{
+	animation-name: nogeen;
+  }
+
+  .box6, .box14, .box9 {
+	animation-name: quiet;
+	animation-delay: .4s;
+  }
+
+  .box7, .box19, .box23, .box17 {
+	animation-name: okay;
+	animation-delay: .5s;
+  }
+
+  .box13, .box24 {
+	animation-name: nogeen;
+	animation-delay: .3s;
+  }
+
+  .box26, .box28, .box22 {
+	animation-name: normal;
+	animation-delay: .7s;
+  }
+
+
+  .songsoverflow {
+	position: absolute;
+	width: calc(100% - 72px);
+	left: 101px;
+	top: 0px;
+}
+
+.song {
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-end;
+	margin: 12px 0;
+}
+
+.song-index {
+	width: 50px;
+	font-size: 23px;
+	line-height: 1;
+	font-weight: 700;
+}
+
+.song-copy {
+	position: relative;
+	width: calc(100% - 50px);
+	font-size: 14px;
+	line-height: 1;
+}
+
+.song-artist {
+	font-size: 15px;
+	width: 100%;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	font-family: 'Geomanist';
+	font-weight: 300;
+}
+
+.song-title {
+	width: 100%;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	margin-top: 3px;
+	font-weight: 700;
+	font-size: 15px;
+}
+
+.circle {
+	position: absolute;
+	height: 830px;
+	width: 831px;
+	left: -33px;
+	top: -302px
+}
+
+
+.player {
+	position: absolute;
+	top: 118px;
+	height: 128px;
+	width: 386px;
+    left: 0;
+    transform: scale(.6);
+	font-family: 'geomanist';
+	font-weight: 700;
+  }
+  
+  .positie {
+	  position: absolute;
+	  top: -14px;
+	  left: calc(50% - 30.5px);
+	  background-color: #DC3C96;
+	  font-size: 16px;
+	  width: 61px;
+	  height: 28px;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  border-radius: 18px;
+	  font-weight: 700;
+  }
+  
+  .cover {
+	  position: absolute;
+	  width: 128px;
+	  height: 100%;
+	  top: 0;
+	  left: 0;
+	  background-image: url('cover.jpg');
+	  background-position: center;
+	  background-size: cover;
+	  background-repeat: no-repeat;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  border-radius: 4px;
+  }
+  
+  .covergradient {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  width: 100%;
+	  height: 100%;
+	  background-color: rgba(0,0,0,.2);
+  }
+  
+  .play {
+	  width: 34px;
+  }
+  
+  .pause {
+	  width: 34px;
+	  display: none;
+  }
+  
+  .playerCopy {
+	  position: absolute;
+	  top: 0;
+	  width: calc(100% - 158px);
+	  left: 158px;
+	  height: 100%;
+	  padding-left: 10px;
+  }
+  
+  .copyoverflow {
+	  overflow: hidden;
+	  width: 228px;
+  }
+  
+  .title {
+	  /* font-weight: 400; */
+	  font-size: 25px;
+	  white-space: nowrap;
+	  width: fit-content;
+	  transition: transform 3s linear;
+	  margin-top: 9px;
+  }
+  
+  .artist {
+	  /* font-weight: 300; */
+	  font-size: 18px;
+	  white-space: nowrap;
+	  width: fit-content;
+	  margin-top: 2px;
+	  transition: transform 8s linear;
+  }
+  
+  .sound {
+	  width: 18px;
+	  height: 18px;
+	  display: flex;
+	  align-items: center;
+  }
+  
+  
+  .soundWave {
+	  display: flex;
+	  width: calc(100% - 76px);
+	  left: 165px;
+	  top: 108px;
+	  position: absolute;
+	  z-index: 3;
+	  transform-origin: center left;
+  }
+  
+  .marquee {
+	  -moz-transform: translateX(0%);
+	  -webkit-transform: translateX(0%);
+	  transform: translateX(0%);
+	  -moz-animation: scroll-left 5s linear;
+	  -webkit-animation: scroll-left 5s linear;
+	  animation: scroll-left 5s linear;
+  }
+  
+  
+  .box {
+	  position: relative;
+	  width: 3px;
+	  height: 15px;
+	  margin-left: 3.5px;
+	  border-radius: 8px;
+	  animation-duration: 1.2s;
+	  animation-timing-function: ease-in-out;
+	  animation-iteration-count: 23.8;
+	  animation-fill-mode: forwards;
+	  background-color: #FFF;
+  }
+  
+  
+  @keyframes quiet {
+	  25%{
+		transform: scaleY(.5);
+	  }
+	  50%{
+		transform: scaleY(.2);
+	  }
+	  75%{
+		transform: scaleY(.8);
+	  }
+	}
+	
+	@keyframes normal {
+	  25%{
+		transform: scaleY(1);
+	  }
+	  50%{
+		transform: scaleY(.4);
+	  }
+	  75%{
+		transform: scaleY(.6);
+	  }
+	}
+  
+	@keyframes okay {
+	  14%{
+		  transform: scaleY(.8);
+		}
+		46%{
+		  transform: scaleY(.2);
+		}
+		90%{
+		  transform: scaleY(1.7)
+		}
+		}
+  
+	@keyframes loud {
+	  25%{
+		transform: scaleY(1);
+	  }
+	  50%{
+		transform: scaleY(.4);
+	  }
+	  75%{
+		transform: scaleY(1.2);
+	  }
+	} 
+  
+	@keyframes nogeen {
+	  8%{
+		  transform: scaleY(.2);
+		}
+		60%{
+		  transform: scaleY(.8);
+		}
+		80%{
+		  transform: scaleY(1);
+		}
+	}
+  ;
+  
+  
+	.box1, .box27, .box11{
+	  animation-name: quiet;
+	  animation-delay: .2s;
+	}
+	
+	.box2, .box23, .box25{
+	  animation-name: normal;
+	}
+	
+	.box3, .box18, .box8, .box27{
+	  animation-name: loud;
+	  animation-delay: .1s;
+	}
+	
+	.box4, .box10, .box16, .box20{
+	  animation-name: okay;
+	}
+	
+	.box5, .box12, .box21{
+	  animation-name: nogeen;
+	}
+  
+	.box6, .box14, .box9 {
+	  animation-name: quiet;
+	  animation-delay: .4s;
+	}
+  
+	.box7, .box19, .box23, .box17 {
+	  animation-name: okay;
+	  animation-delay: .5s;
+	}
+  
+	.box13, .box24 {
+	  animation-name: nogeen;
+	  animation-delay: .3s;
+	}
+  
+	.box26, .box28, .box22 {
+	  animation-name: normal;
+	  animation-delay: .7s;
+	}
+  
+	.nowplaying {
+	  color: #A8C6F1;
+	  font-size: 16px;
+	  font-family: 'geomanist';
+	  font-style: normal;
+	  font-weight: 300;
+	}

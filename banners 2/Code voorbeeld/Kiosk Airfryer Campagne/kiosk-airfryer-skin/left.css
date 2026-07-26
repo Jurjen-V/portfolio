@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#stage {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.bol{
+  position: absolute;
+  bottom: 212px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 207px;
+  height: 207px;
+  z-index: 6;
+}
+.bol div{
+  position: absolute;
+}
+.plus{
+  top: 20px;
+  font-size: 50.07px;
+  line-height: 59.5px;
+}
+.Philips{
+  top: 61px;
+  font-size:50.58px;
+  line-height:61.2px;
+}
+.Airfryer{
+  top: 110px;
+  font-family: 'AnekLatin-SemiBold';
+  font-size: 35.8px;
+  line-height: 42.5px;
+}
